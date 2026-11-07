@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f7f2">
+<meta name="description" content="挑一个，马上开玩。收藏喜欢的小游戏，随时回来玩一局。">
+<link rel="icon" href="games/rooftop-reset/assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+<title>开始游戏 · 小游戏大厅</title>
+</head>
+<body data-page="player">
+<header class="site-header">
+<div class="header-inner">
+<a id="back" class="back-link" href="index.html">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#back">
+</use>
+</svg>
+<span>返回大厅</span>
+</a>
+<a class="brand" href="index.html" aria-label="小游戏大厅首页">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#grid">
+</use>
+</svg>
+<span>小游戏大厅</span>
+</a>
+<button id="favorite" class="button secondary" aria-pressed="false" disabled>
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#heart">
+</use>
+</svg>
+<span>收藏</span>
+</button>
+</div>
+</header>
+<main class="container player-main">
+<section class="player-wrap" id="player-wrap">
+<div class="player-heading">
+<div>
+<p class="eyebrow" id="game-category">LET’S PLAY</p>
+<h1 id="game-name">正在加载游戏</h1>
+</div>
+<div class="player-actions">
+<button id="help" class="button secondary" disabled>
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#info">
+</use>
+</svg>
+<span>操作说明</span>
+</button>
+<button id="fullscreen" class="button primary" disabled>
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#full">
+</use>
+</svg>
+<span>全屏游戏</span>
+</button>
+</div>
+</div>
+<div id="stage" class="stage" aria-label="游戏区域">
+<div id="stage-state" class="stage-state">
+<span class="loader">
+</span>
+<h2 id="stage-title">准备进入游戏…</h2>
+<p id="stage-detail">冒险马上开始</p>
+<button id="retry-load" class="button primary" hidden>重新加载</button>
+</div>
+</div>
+</section>
+<section id="game-info" class="game-info" hidden>
+<div class="controls-strip">
+<span>
+<kbd>←</kbd> <kbd>→</kbd> 移动</span>
+<span>
+<kbd>Space</kbd> 跳跃</span>
+<span>
+<kbd>Shift</kbd> 冲刺</span>
+<span>
+<kbd>↓</kbd> 蹲下</span>
+<span>
+<kbd>Esc</kbd> 暂停</span>
+</div>
+<p class="touch-hint">用游戏内摇杆移动，点击跳跃与冲刺。</p>
+<div class="game-description">
+<div>
+<h2 id="game-description">
+</h2>
+<p id="game-notes">
+</p>
+</div>
+<div class="description-actions">
+<button id="restart" class="text-button">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#retry">
+</use>
+</svg>重新开始</button>
+<a id="source" class="text-button" target="_blank" rel="noopener noreferrer">原作者网站 <svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#external">
+</use>
+</svg>
+</a>
+</div>
+</div>
+</section>
+</main>
+<dialog id="help-dialog">
+<div class="dialog-heading">
+<h2>操作说明</h2>
+<button class="icon-button" data-close="help-dialog" aria-label="关闭操作说明">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#close">
+</use>
+</svg>
+</button>
+</div>
+<ul id="control-list">
+</ul>
+<p id="help-notes">
+</p>
+<button class="button primary" data-close="help-dialog">知道了</button>
+</dialog>
+<dialog id="win-dialog">
+<p class="eyebrow">ROOFTOP REACHED</p>
+<h2>屋顶到了，挑战完成！</h2>
+<p>你已按下 Rooftop Reset 的重置按钮。</p>
+<div class="win-actions">
+<a class="button primary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">打开 ChatGPT <svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#external">
+</use>
+</svg>
+</a>
+<button id="play-again" class="button secondary">再玩一次</button>
+<a id="win-back" class="text-button" href="index.html">返回大厅</a>
+</div>
+</dialog>
+<footer class="footer container">
+<span>
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#grid">
+</use>
+</svg> 小游戏大厅</span>
+<p>这一局，玩得开心</p>
+</footer>
+<div id="toast" class="toast" role="status" hidden>
+</div>
+<script type="module" src="player.js?v=breakout-50">
+</script>
+</body>
+</html>

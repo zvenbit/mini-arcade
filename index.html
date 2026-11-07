@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f7f2">
+<meta name="description" content="挑一个，马上开玩。收藏喜欢的小游戏，随时回来玩一局。">
+<link rel="icon" href="games/rooftop-reset/assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+<title>小游戏大厅 · 挑一个，马上开玩</title>
+</head>
+<body data-page="lobby">
+<a class="skip" href="#main">跳到游戏列表</a>
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="index.html" aria-label="小游戏大厅首页">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#grid">
+</use>
+</svg>
+<span>小游戏大厅</span>
+</a>
+<nav class="main-nav" aria-label="大厅导航">
+<a href="index.html?view=all" data-view="all">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#grid">
+</use>
+</svg>
+<span>发现游戏</span>
+</a>
+<a href="index.html?view=recent" data-view="recent">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#clock">
+</use>
+</svg>
+<span>最近玩过</span>
+</a>
+<a href="index.html?view=favorites" data-view="favorites">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#heart">
+</use>
+</svg>
+<span>我的收藏</span>
+</a>
+</nav>
+<button id="theme" class="icon-button" aria-label="切换深色模式">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#moon">
+</use>
+</svg>
+</button>
+</div>
+</header>
+<main id="main" class="container">
+<section class="intro">
+<div>
+<p class="eyebrow">YOUR LITTLE ARCADE</p>
+<h1>挑一个，<br class="mobile-break">马上开玩<span class="accent-dot">。</span>
+</h1>
+<p class="lead">打开即玩，把好玩的留在这里。</p>
+</div>
+<form id="search-form" class="search" role="search">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#search">
+</use>
+</svg>
+<label class="sr" for="search">搜索游戏</label>
+<input id="search" type="search" placeholder="搜索游戏" autocomplete="off" maxlength="100">
+<span class="search-key" aria-hidden="true">⌕</span>
+</form>
+</section>
+<div id="categories" class="categories" role="group" aria-label="筛选游戏分类">
+</div>
+<section id="featured" class="featured" aria-label="主推游戏" hidden>
+</section>
+<section class="catalog" aria-labelledby="list-title">
+<div class="section-heading">
+<h2 id="list-title">全部游戏 <span id="count">
+</span>
+</h2>
+<label class="sort-label">排序<select id="sort">
+<option value="added">最近加入</option>
+<option value="name">游戏名称</option>
+</select>
+</label>
+</div>
+<p id="loading" class="loading" role="status">正在打开游戏大厅…</p>
+<div id="game-grid" class="game-grid">
+</div>
+<section id="empty" class="empty" hidden>
+<div class="empty-icon">
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#search">
+</use>
+</svg>
+</div>
+<h3 id="empty-title">
+</h3>
+<p id="empty-text">
+</p>
+<button id="reset-filter" class="button secondary">浏览全部游戏</button>
+</section>
+<div class="coming">
+<span class="plus">+</span>
+<div>
+<strong>更多好玩的，陆续加入</strong>
+<p>一小格，装下下一场冒险。</p>
+</div>
+<span class="coming-dots" aria-hidden="true">···</span>
+</div>
+</section>
+</main>
+<footer class="footer container">
+<span>
+<svg class="icon" aria-hidden="true">
+<use href="assets/icons.svg#grid">
+</use>
+</svg> 小游戏大厅</span>
+<p>随时来玩一局</p>
+<span class="footer-note">为每一段空闲时间</span>
+</footer>
+<div id="toast" class="toast" role="status" hidden>
+</div>
+<script type="module" src="lobby.js?v=breakout-50">
+</script>
+</body>
+</html>

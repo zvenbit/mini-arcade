@@ -1,0 +1,187 @@
+[
+  {
+    "id": "rooftop-reset",
+    "name": "Rooftop Reset",
+    "category": "动作",
+    "subtitle": "平台跳跃",
+    "description": "从地下室出发，跨过机关与断崖，向六层高塔的屋顶进发。",
+    "cover": "assets/game-covers.png",
+    "entry": "games/rooftop-reset/index.html",
+    "source": "https://www.poteto.com/",
+    "added": "2026-11-07",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "featured": true,
+    "controls": [
+      "← → 或 A / D 移动",
+      "Space / W / ↑ 跳跃，按住跳得更高",
+      "Shift / X 冲刺，落地后恢复",
+      "↓ / S 蹲下，配合跳跃可下穿平台",
+      "R 重试，Esc / P 暂停",
+      "手机使用摇杆、冲刺和跳跃按钮"
+    ],
+    "notes": "Hard 在旗帜处保存本局的楼层检查点。Nightmare 每次死亡返回地下室。离开或刷新游戏会结束本局，个人最佳成绩保存在当前浏览器。",
+    "coverPosition": [
+      0,
+      0
+    ],
+    "featuredCover": "assets/rooftop-cover.webp",
+    "touchHelp": "用游戏内摇杆移动，点击跳跃与冲刺。",
+    "controlHints": [
+      [
+        "← →",
+        "移动"
+      ],
+      [
+        "Space",
+        "跳跃"
+      ],
+      [
+        "Shift",
+        "冲刺"
+      ],
+      [
+        "↓",
+        "蹲下"
+      ],
+      [
+        "Esc",
+        "暂停"
+      ]
+    ]
+  },
+  {
+    "id": "2048",
+    "name": "2048",
+    "category": "益智",
+    "subtitle": "数字合并",
+    "description": "把相同数字合在一起，每一次滑动都离 2048 更近一步。",
+    "coverPosition": [
+      1,
+      0
+    ],
+    "controls": [
+      "方向键或 W / A / S / D 移动所有方块",
+      "手机可在棋盘上滑动，或使用下方方向按钮",
+      "相同数字每一步最多合并一次，合并后的数值计入得分",
+      "达到 2048 后可继续挑战，无法移动时结束",
+      "P / Esc 暂停，新一局清空当前棋盘"
+    ],
+    "notes": "棋盘和得分自动保存在当前浏览器，离开后可回来续玩。新一局会清空当前局面，最佳成绩会保留。",
+    "touchHelp": "在棋盘上滑动，或点击方向按钮合并数字。",
+    "controlHints": [
+      [
+        "方向键",
+        "合并数字"
+      ],
+      [
+        "W A S D",
+        "移动"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/game-covers.png",
+    "entry": "games/2048/index.html",
+    "added": "2026-11-07",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true
+  },
+  {
+    "id": "snake",
+    "name": "贪吃蛇",
+    "category": "休闲",
+    "subtitle": "经典玩法",
+    "description": "在绿色棋盘里寻找苹果，慢慢长大，也记得给自己留一条路。",
+    "coverPosition": [
+      0,
+      1
+    ],
+    "controls": [
+      "方向键或 W / A / S / D 转向",
+      "手机可滑动棋盘或点击下方方向按钮",
+      "每颗苹果 10 分，小蛇变长，得分增加后逐渐加速",
+      "不能直接掉头，碰墙或碰到自己时结束",
+      "P / Esc 暂停，新一局重新开始"
+    ],
+    "notes": "本局进度在离开页面后结束，最佳成绩保存在当前浏览器。",
+    "touchHelp": "滑动棋盘或点击方向按钮，控制小蛇转向。",
+    "controlHints": [
+      [
+        "方向键",
+        "转向"
+      ],
+      [
+        "W A S D",
+        "转向"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/game-covers.png",
+    "entry": "games/snake/index.html",
+    "added": "2026-11-07",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true
+  },
+  {
+    "id": "breakout",
+    "name": "打砖块",
+    "category": "街机",
+    "subtitle": "经典复刻",
+    "description": "接住每一次反弹，逐行消除砖阵，挑战越来越难的 50 个关卡。",
+    "coverPosition": [
+      1,
+      1
+    ],
+    "controls": [
+      "移动鼠标，或使用 ← → / A D 控制挡板",
+      "手机可在棋盘上拖动，或按住下方方向按钮",
+      "点击开始游戏发球，待发球时也可按空格",
+      "共有 50 关，每关 3 条生命；多层砖需要击中 2～3 次，击碎得 10～30 分",
+      "所有砖块都在屏幕内；清空任意一整行，剩余砖块全部自动下移一行",
+      "球落到底部消耗一条生命，生命用完时结束",
+      "P / Esc 暂停；失败可重试本关，新一局从第 1 关重新开始"
+    ],
+    "notes": "球速、砖块行数和耐久逐步提升，挡板逐渐变窄。过关保存分数和下一关进度，每关恢复 3 条生命。刷新后从已保存关卡的开局继续，当前关砖块状态不保存。",
+    "touchHelp": "在棋盘内左右拖动，或按住方向按钮移动挡板。",
+    "controlHints": [
+      [
+        "← → / A D",
+        "移动挡板"
+      ],
+      [
+        "鼠标",
+        "控制挡板"
+      ],
+      [
+        "Space",
+        "发球"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/game-covers.png",
+    "entry": "games/breakout/index.html?v=breakout-50",
+    "added": "2026-11-07",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true
+  }
+]
