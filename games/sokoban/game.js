@@ -16,7 +16,7 @@ ui.arena.before(settings);
 const select=settings.querySelector('select');
 levels.forEach((entry,i)=>select.add(new Option(`${String(i+1).padStart(2,'0')} · ${entry.name}`,i)));
 const board=document.createElement('div');board.className='sokoban-board';board.setAttribute('role','img');ui.surface.append(board);
-let cells=[], facing='right';
+let cells=[];
 function initial() { return {player:level.player,boxes:[...level.boxes],moves:0,pushes:0}; }
 function save() { writeSave('sokoban:progress',{unlocked,current,best,state,history:history.slice(-500)}); }
 function render() {
@@ -30,7 +30,7 @@ function render() {
     cell.className=`soko-cell${level.walls.includes(i)?' wall':''}${goal?' goal':''}${box&&goal?' on-goal':''}`;
     cell.replaceChildren();
     if(box){const crate=document.createElement('span');crate.className='crate';cell.append(crate);}
-    if(state.player===i){const worker=document.createElement('span');worker.className=`worker${facing==='left'?' facing-left':''}`;const sprite=document.createElement('span');sprite.className='worker-art';worker.append(sprite);cell.append(worker);}
+    if(state.player===i){const worker=document.createElement('span');worker.className='worker';const sprite=document.createElement('span');sprite.className='worker-art';worker.append(sprite);cell.append(worker);}
   });
   const placed=state.boxes.filter(i=>level.goals.includes(i)).length;
   board.setAttribute('aria-label',`第 ${current+1} 关棋盘，工人在 ${Math.floor(state.player/level.width)+1} 行 ${state.player%level.width+1} 列，已归位 ${placed}/${state.boxes.length} 个箱子`);
@@ -51,7 +51,6 @@ function restart(){load(current);}
 function move(direction) {
   if(ui.blocked||isWon(level,state))return;
   const before=state;
-  if(direction==='left'||direction==='right')facing=direction;
   const next=step(level,state,direction);if(!next){ui.sound('blocked');return;}
   history.push({player:state.player,boxes:[...state.boxes],moves:state.moves,pushes:state.pushes});if(history.length>500)history.shift();state=next;
   ui.sound(next.pushed?'push':'move');save();render();animateMove(board,before,state);finish();
