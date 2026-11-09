@@ -506,7 +506,7 @@ button .icon,a .icon{
   font-size:11px;
   color:var(--muted)
 }
-.footer>span:first-child{
+.footer>span:first-child,.footer-brand>span{
   font-weight:700;
   color:var(--ink);
   display:flex;
@@ -518,7 +518,7 @@ button .icon,a .icon{
   width:17px;
   height:17px
 }
-.footer p{
+.footer>p,.footer-brand>p{
   border-left:1px solid var(--line);
   padding-left:20px
 }
@@ -1038,7 +1038,7 @@ dialog>h2{
     flex-wrap:wrap;
     padding:20px 0 105px
   }
-  .footer p{
+  .footer>p,.footer-brand>p{
     padding-left:12px
   }
   .footer-note{
@@ -1183,11 +1183,13 @@ dialog>h2{
   .stats-help { margin-left: 0; }
 }
 
-/* Keep the lobby counters quiet, just above the footer. */
+/* Center the lobby counters between the footer's left and right text. */
+.lobby-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.footer-brand { display: flex; align-items: center; gap: 20px; white-space: nowrap; }
 .visit-stats-footer {
   justify-content: center;
   gap: 8px 16px;
-  margin: 28px auto 16px;
+  margin: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -1203,3 +1205,8 @@ dialog>h2{
 .visit-stats-footer .stats-help { margin: 0; }
 .visit-stats-footer .stats-help[open] { flex-basis: 100%; }
 .visit-stats-footer .stats-status { margin: 0; }
+@media (max-width: 900px) {
+  .lobby-footer { grid-template-columns: 1fr auto; }
+  .lobby-footer .visit-stats-footer { grid-column: 1 / -1; grid-row: 2; }
+  .footer-brand { gap: 12px; }
+}
