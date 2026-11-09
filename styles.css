@@ -1168,9 +1168,6 @@ dialog>h2{
 .stats-values > div { display: flex; gap: 10px; align-items: baseline; }
 .stats-values dt { font-size: 12px; color: var(--muted); }
 .stats-values dd { margin: 0; font-size: 21px; font-weight: 750; font-variant-numeric: tabular-nums; }
-.stats-help { margin-left: auto; font-size: 11px; color: var(--muted); max-width: 520px; }
-.stats-help summary { cursor: pointer; }
-.stats-help p { padding-top: 9px; line-height: 1.8; }
 .stats-status { font-size: 12px; color: var(--muted); }
 .stats-retry { font-size: 12px; }
 .player-main > .visit-stats { margin: 22px 0 0; }
@@ -1180,7 +1177,6 @@ dialog>h2{
   .stats-values { width: 100%; justify-content: space-between; gap: 12px; }
   .stats-values > div { display: block; }
   .stats-values dd { margin-top: 3px; }
-  .stats-help { margin-left: 0; }
 }
 
 /* Center the lobby counters between the footer's left and right text. */
@@ -1202,8 +1198,6 @@ dialog>h2{
 .visit-stats-footer .stats-values > div { display: flex; gap: 4px; white-space: nowrap; }
 .visit-stats-footer .stats-values > div + div::before { content: '·'; margin-right: 8px; }
 .visit-stats-footer .stats-values dd { margin: 0; font-size: 12px; font-weight: 500; }
-.visit-stats-footer .stats-help { margin: 0; }
-.visit-stats-footer .stats-help[open] { flex-basis: 100%; }
 .visit-stats-footer .stats-status { margin: 0; }
 @media (max-width: 900px) {
   .lobby-footer { grid-template-columns: 1fr auto; }

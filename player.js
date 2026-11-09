@@ -1,5 +1,5 @@
 import { element, notify, applyTheme, loadGames, setFavoriteButton, toggleFavorite, recordPlay } from './common.js?v=breakout-50';
-import { mountStats } from './stats.js?v=visits-1';
+import { mountStats } from './stats.js?v=visits-2';
 
 const stage = document.getElementById('stage');
 const statePanel = document.getElementById('stage-state');

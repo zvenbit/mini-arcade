@@ -24,7 +24,6 @@ export function mountStats(container, page = 'lobby') {
   const site = page === 'lobby';
   container.innerHTML = `<div class="stats-caption"><span class="stats-dot" aria-hidden="true"></span><span>${site ? '大厅访问统计' : '本游戏访问统计'}</span></div>
     <dl class="stats-values"><div><dt>今日访问</dt><dd data-count="today">—</dd></div><div><dt>总访问</dt><dd data-count="total">—</dd></div><div><dt>${site ? '今日访客' : '今日玩家'}</dt><dd data-count="visitorsToday">—</dd></div></dl>
-    <details class="stats-help"><summary>统计说明</summary><p>${site ? '全站大厅与游玩页的访问次数。' : '本游戏成功加载后的访问次数，不等于对局数。'}刷新页面会计入访问，筛选、暂停和重新开局不会。人数按同一浏览器当天去重，跨设备或清除浏览器数据可能重复计算。禁用存储时仅计访问次数。按北京时间每日归零，总访问持续累积。<span class="stats-since"></span></p></details>
     <p class="stats-status" role="status">正在读取统计…</p><button class="stats-retry text-button" hidden>重试统计</button>`;
   const status = container.querySelector('.stats-status');
   const retry = container.querySelector('.stats-retry');
@@ -50,7 +49,6 @@ export function mountStats(container, page = 'lobby') {
       if (!counts || !['today', 'total', 'visitorsToday'].every(key => Number.isSafeInteger(counts[key]) && counts[key] >= 0)) throw new Error('Invalid counts');
       recorded = true;
       for (const key of ['today', 'total', 'visitorsToday']) container.querySelector(`[data-count="${key}"]`).textContent = formatter.format(counts[key]);
-      container.querySelector('.stats-since').textContent = /^\d{4}-\d{2}-\d{2}$/.test(data.startedAt || '') ? `统计自 ${data.startedAt} 开始。` : '';
       status.textContent = ''; status.hidden = true;
     } catch {
       status.hidden = false; status.textContent = '统计暂不可用，游戏仍可正常游玩。';
