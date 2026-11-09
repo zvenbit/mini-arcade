@@ -1,4 +1,5 @@
 import { icon, element, notify, readPreferences, savePreferences, toggleFavorite, setFavoriteButton, applyTheme, loadGames, gameUrl, saveScroll, restoreScroll } from './common.js?v=breakout-50';
+import { mountStats } from './stats.js?v=visits-1';
 
 const grid = document.getElementById('game-grid');
 const search = document.getElementById('search');
@@ -188,6 +189,7 @@ window.addEventListener('pageshow', event => { if (event.persisted) { render(); 
 
 try {
   games = await loadGames();
+  mountStats(document.getElementById('visit-stats'));
   document.getElementById('loading').hidden = true;
   render();
   requestAnimationFrame(restoreScroll);

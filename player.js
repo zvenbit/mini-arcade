@@ -1,4 +1,5 @@
 import { element, notify, applyTheme, loadGames, setFavoriteButton, toggleFavorite, recordPlay } from './common.js?v=breakout-50';
+import { mountStats } from './stats.js?v=visits-1';
 
 const stage = document.getElementById('stage');
 const statePanel = document.getElementById('stage-state');
@@ -94,7 +95,12 @@ async function launch() {
         if (!frame.contentDocument?.body) return;
       } catch { return; }
       statePanel.hidden = true;
-      if (!recorded) { recordPlay(game.id); recorded = true; }
+      if (!recorded) {
+        recordPlay(game.id); recorded = true;
+        const stats = document.getElementById('visit-stats');
+        stats.hidden = false;
+        mountStats(stats, game.id);
+      }
       for (const id of ['help', 'fullscreen']) document.getElementById(id).disabled = false;
       frame.focus();
     });

@@ -1,0 +1,52 @@
+任务：部署小游戏大厅的访问统计。代码仓库 github.com/zvenbit/mini-arcade。
+
+这是在既有静态站点上增加统计 API。仅拉取静态文件不会启用统计。
+网站游戏继续由 Nginx 托管；新增 Python 3.9+ 标准库服务，无需 pip、npm 或独立数据库服务。
+
+一、检查当前部署
+确认站点文档根目录以及已有 Nginx 配置。以下示例根目录为 /var/www/mini-arcade；若不同，修改 service 中 --catalog 路径。
+不要覆盖现有证书、站点配置或其他业务。先备份当前 Nginx 配置。
+
+二、拉取最新代码并安装服务
+在现有仓库目录 git pull --ff-only。
+将 server/stats_server.py 安装到 /opt/mini-arcade-stats/stats_server.py（目录 755，文件 644）。
+将 deploy/mini-arcade-stats.service 安装为 /etc/systemd/system/mini-arcade-stats.service。
+检查 service 中 --catalog 为实际 games.json 路径。
+--allow-origin 必须是实际访问来源 https://arcade.venai.cn（不带末尾斜杠）；如果有第二个入口域名，增加第二个 --allow-origin 参数。
+执行：
+  sudo systemctl daemon-reload
+  sudo systemctl enable --now mini-arcade-stats
+  curl --fail http://127.0.0.1:46175/api/health
+
+三、合并 Nginx 路由
+把 deploy/nginx-stats.conf 的 location 块合并到该域名现有 server 块。
+对于已有相同路径或缓存规则，修改原块，不重复声明。
+API 只监听 127.0.0.1:46175，不需要开放新公网端口。
+必须让 /api/ 转发到统计服务，不能落到静态 try_files 或页面回退。
+保留标准 mime.types 和允许同源 iframe 的配置。
+执行 nginx -t，通过后 reload nginx。
+可按服务器现有策略对 /api/ 做限流，避免爬虫刷量；不要影响正常玩家。
+
+四、检查上线
+GET https://arcade.venai.cn/api/health 返回 {"ok":true}。
+GET https://arcade.venai.cn/api/stats?page=lobby 返回 site 和 page，读取不会增量。
+打开大厅：出现今日访问、总访问、今日访客。
+打开游戏：出现本游戏今日访问、总访问、今日玩家。
+同一浏览器刷新会增加访问次数，但同一天不会增加去重人数；重开游戏不增加次数。
+统计失败只显示暂不可用，不阻止游戏。
+这些真实浏览器验收访问也会计入统计。
+
+五、持久化和后续更新
+生产数据库固定在 /var/lib/mini-arcade-stats/visits.sqlite3，不在 Git 或网站目录中。
+更新代码时不要删除该目录，不要用测试数据库覆盖它。systemd StateDirectory 在服务重启时保留数据。
+更新 server/stats_server.py 或新增 games.json 游戏后，重新安装该脚本并 restart mini-arcade-stats。
+需要备份时使用 SQLite 在线 backup API，或停服务后备份整个数据目录，勿只复制运行中的主库而忽略 WAL。
+今日按 Asia/Shanghai（北京时间）00:00 切日；历史每日计数和累计计数保留。
+统计从本次部署开始，无法回填启用前的访问。此服务不声称防刷量，也不统计精确真人数量。
+
+子目录部署（如 /arcade/）
+前端 API 会自动指向 /arcade/api/。改用 location ^~ /arcade/api/ {
+  proxy_pass http://127.0.0.1:46175/api/;
+  ...其余代理选项相同...
+}
+并同步调整禁止访问内部目录的 Nginx 规则。末尾 /api/ 用于把子目录前缀剥离。
