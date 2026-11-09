@@ -51,8 +51,8 @@ function render(flipped=[],planted=-1) {
 function finish() {
   if (state.result==='won') {
     if (!Number.isFinite(records[state.difficulty]) || state.elapsed<records[state.difficulty]) {records[state.difficulty]=state.elapsed;writeSave('minesweeper:records',records);}
-    save(); render(); art.celebrate(); ui.show('win','安全过关！',`${difficulties[state.difficulty].label}用时 ${time(state.elapsed)}，全部安全格已找到。`,'查看棋盘',()=>ui.hide());
-  } else if (state.result==='lost') { ui.show('over','差一点就成功了',`本局用时 ${time(state.elapsed)}，看看地雷的位置，再挑战一次。`,'查看棋盘',()=>ui.hide()); }
+    save(); render(); art.celebrate(); ui.show('win','安全过关！',`${difficulties[state.difficulty].label}用时 ${time(state.elapsed)}，全部安全格已找到。`,'重新开始',restart);
+  } else if (state.result==='lost') { ui.show('over','差一点就成功了',`本局用时 ${time(state.elapsed)}，看看地雷的位置，再挑战一次。`,'重新开始',restart); }
 }
 function act(index,mark) {
   if (ui.blocked || state.result) return;

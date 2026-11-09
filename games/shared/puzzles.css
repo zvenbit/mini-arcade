@@ -89,3 +89,9 @@ select { font:inherit; color:var(--ink); border:1px solid var(--line); border-ra
   .sokoban-board { padding:7px; }.overlay-card { padding:18px; }.overlay h2 { font-size:22px; }
 }
 @media (prefers-reduced-motion:reduce) { .mine-cell.flipped,.mine-cell.planted::after,.board-sparkles.celebrate i { animation:none; } button { transition:none; } }
+
+/* Keep the finished minefield visible through the result panel. */
+.minesweeper .overlay { background:#092d2414; backdrop-filter:none; }
+.minesweeper .overlay-card { background:linear-gradient(145deg,#28554899,#143b339e); box-shadow:0 8px 22px #0003; text-shadow:0 2px 4px #06271e; }
+.minesweeper .overlay p:not(.eyebrow) { color:#fffffff2; }
+.minesweeper .overlay button { text-shadow:none; }
