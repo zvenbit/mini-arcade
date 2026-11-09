@@ -1,11 +1,15 @@
 // Original, locally synthesized arcade music and effects. No audio downloads.
 const preferenceKey = 'mini-arcade-game:sound';
 const songs = {
+  minesweeper: { beat: .48, notes: [64, 67, 71, 0, 67, 64, 62, 0, 60, 64, 67, 0, 62, 67, 64, 0] },
+  sokoban: { beat: .4, notes: [60, 0, 67, 64, 65, 0, 69, 67, 62, 0, 65, 69, 67, 64, 60, 0] },
   numbers: { beat: .36, notes: [60, 64, 67, 72, 67, 64, 62, 67, 59, 62, 67, 71, 67, 62, 64, 0] },
   snake: { beat: .24, notes: [72, 76, 79, 76, 74, 77, 81, 77, 72, 76, 79, 84, 81, 79, 76, 0] },
   breakout: { beat: .19, notes: [57, 64, 69, 72, 76, 72, 69, 64, 53, 60, 65, 69, 72, 69, 65, 60] }
 };
 const effects = {
+  reveal: [[620, .045], [830, .06]], flag: [[440, .055], [590, .07]],
+  push: [[180, .06], [240, .08]], undo: [[650, .06], [430, .08]], blocked: [[150, .055]],
   move: [[330, .045]], merge: [[523, .09], [784, .13]],
   turn: [[240, .035]], eat: [[660, .065], [990, .11]],
   brick: [[880, .055], [1175, .07]], bounce: [[350, .045]],

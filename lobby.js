@@ -55,6 +55,7 @@ function createCard(game) {
   cover.height = 400;
   if (game.coverPosition) {
     cover.classList.add('cover-atlas');
+    if (game.coverGrid) { cover.style.width = `${game.coverGrid[0] * 100}%`; cover.style.height = `${game.coverGrid[1] * 100}%`; }
     cover.style.left = `${-game.coverPosition[0] * 100}%`;
     cover.style.top = `${-game.coverPosition[1] * 100}%`;
   }

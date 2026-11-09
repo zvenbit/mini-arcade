@@ -1,0 +1,48 @@
+body.minesweeper { --accent:#64d6bf; --ink:#174c4a; --muted:#5c8984; --panel:#ffffffaa; --line:#a4d6ca; color:var(--ink); background:radial-gradient(ellipse at 70% 0%,#b6eee0,transparent 65%),#e9f7ef; }
+body.sokoban { --accent:#ffd579; --ink:#41365c; --muted:#8b7c9d; --panel:#ffffffa6; --line:#d8c9e8; color:var(--ink); background:radial-gradient(ellipse at 70% 0%,#e2d2fa,transparent 65%),#f5eefb; }
+.game-shell { width:min(520px,calc(100% - 28px)); padding:18px 0; }
+.toolbar { gap:8px; }
+.toolbar>p { flex-basis:100%; }
+.puzzle-settings { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:12px; font-size:12px; }
+select { font:inherit; color:inherit; border:1px solid var(--line); border-radius:8px; padding:8px; background:var(--panel); min-height:36px; }
+.puzzle-settings button { font-size:12px; padding:7px 12px; min-height:36px; }
+.puzzle-settings button[aria-pressed=true] { background:var(--ink); color:white; }
+#surface { touch-action:auto; }
+.mine-scroll { overflow:auto; padding:10px; background:#8ac7b7; border-radius:14px; }
+.mine-board { display:grid; gap:3px; min-width:280px; }
+.mine-cell { min-height:0; padding:0; aspect-ratio:1; border-radius:5px; border:0; border-bottom:3px solid #65a895; background:linear-gradient(145deg,#d8f8e5,#a7e2ca); font-size:clamp(13px,3.5vw,23px); font-weight:800; display:grid; place-items:center; user-select:none; }
+.mine-cell.revealed { background:#eff9ed; border:0; box-shadow:inset 0 0 0 1px #86b6a126; }
+.mine-cell[data-number='1'] { color:#2682bf; }.mine-cell[data-number='2'] { color:#37895a; }.mine-cell[data-number='3'] { color:#da6954; }.mine-cell[data-number='4'] { color:#8962b8; }
+.mine-cell.mine { color:#253f52; }.mine-cell.exploded { background:#f8b5a8; }.mine-cell.flagged { color:#d75e53; }
+.mine-cell:focus-visible { outline:3px solid #174c4a; outline-offset:-3px; z-index:1; }
+.mine-board.dense { min-width:460px; }.mine-board.dense .mine-cell { font-size:16px; }
+.puzzle-note { font-size:11px; color:var(--muted); line-height:1.7; margin-top:9px; text-align:center; }
+.sokoban-board { display:grid; padding:10px; gap:3px; background:#b6a2ca; border-radius:14px; user-select:none; touch-action:none; }
+.soko-cell { position:relative; aspect-ratio:1; display:grid; place-items:center; background:#e5daf0; border-radius:5px; box-shadow:inset 0 -2px #00000009; }
+.soko-cell.wall { background:linear-gradient(145deg,#8e78a7,#77618f); box-shadow:inset 0 3px #b3a1c7,0 3px #625276; }
+.soko-cell.goal::before { content:''; width:42%; height:42%; border:3px solid #d8a741; background:#ffe39a; border-radius:50%; box-shadow:0 0 9px #ffe3a6; }
+.crate { position:absolute; inset:9%; background:linear-gradient(135deg,#f5c879,#d99a4c); border:3px solid #af7238; border-radius:5px; box-shadow:inset 0 0 0 2px #ffdda3,0 3px 2px #4b303526; }
+.crate::before,.crate::after { content:''; position:absolute; width:90%; height:9%; background:#b77e3f; left:5%; top:45%; transform:rotate(45deg); box-shadow:0 1px #ffe0a1; }
+.crate::after { transform:rotate(-45deg); }.on-goal .crate { background:#aad6a4; border-color:#5d9e6a; }.on-goal .crate::before,.on-goal .crate::after { background:#5d9e6a; }
+.worker { position:absolute; inset:12%; display:grid; place-items:center; font-size:clamp(18px,5vw,30px); border-radius:50%; background:#ffdd7f; box-shadow:0 3px #c79752; }
+.direction-pad button { background:#ffffffb8; }
+.level-note { color:var(--muted); font-size:11px; margin-left:auto; }
+@media(max-width:400px) { .game-shell { width:calc(100% - 24px); } .game-header { gap:8px; } .scores>div { padding:6px 8px; } .mine-scroll { padding:6px; } .toolbar button { padding:7px 10px; } }
+/* Use the wide player canvas without cutting off the bottom of the board. */
+@media (min-width:700px) {
+  .game-shell { display:grid; grid-template-columns:220px minmax(0,1fr); column-gap:28px; row-gap:12px; align-content:center; width:min(780px,calc(100% - 48px)); min-height:100svh; padding:20px 0; }
+  .game-header { grid-column:1; flex-wrap:wrap; align-content:start; }
+  .game-header>div:first-child { width:100%; }
+  .scores { width:100%; }.scores>div { flex:1; }
+  .toolbar,.puzzle-settings,.help,.puzzle-note,.touch-controls,.storage-note { grid-column:1; margin:0; }
+  .arena { grid-column:2; grid-row:1 / span 7; align-self:center; width:min(100%,calc(100svh - 44px)); justify-self:center; }
+  .help,.puzzle-note { text-align:left; }
+  .level-note { margin:0; }
+  .mine-board { min-width:0; }.mine-board.dense { min-width:0; }
+  .mine-board.dense .mine-cell { font-size:13px; }
+  .touch-controls { justify-content:flex-start; gap:5px; }
+}
+@media (max-width:699px) {
+  .mine-scroll { max-height:max(270px,calc(100svh - 245px)); }
+  .minesweeper .help { display:none; }
+}

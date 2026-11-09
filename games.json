@@ -183,5 +183,107 @@
       "touch"
     ],
     "restartMessage": true
+  },
+  {
+    "id": "minesweeper",
+    "name": "扫雷",
+    "category": "益智",
+    "subtitle": "步步为营",
+    "description": "从安全的第一步出发，读懂数字，找到藏在格子里的所有地雷。",
+    "controls": [
+      "点击格子翻开，右键或 F 插旗；手机可切换插旗模式",
+      "方向键选择格子，空格或回车翻开",
+      "首点及周围不会有雷；翻开所有非雷格即可获胜",
+      "已翻开的数字周围旗数相等时，再次点击可展开邻格；错旗仍会踩雷",
+      "初级 9×9 / 10 雷，中级 12×12 / 24 雷，高级 16×16 / 40 雷",
+      "P / Esc 暂停；新一局或更换难度重置当前棋盘"
+    ],
+    "notes": "棋盘和用时自动保存在当前浏览器，各难度分别记录最佳用时。高级棋盘在手机上可横向滚动。",
+    "touchHelp": "点击翻开，切换“插旗模式”标记地雷；高级棋盘可左右滑动。",
+    "controlHints": [
+      [
+        "点击",
+        "翻开"
+      ],
+      [
+        "右键 / F",
+        "插旗"
+      ],
+      [
+        "方向键",
+        "选格"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/puzzle-covers.png",
+    "coverPosition": [
+      0,
+      0
+    ],
+    "coverGrid": [
+      2,
+      1
+    ],
+    "entry": "games/minesweeper/index.html",
+    "added": "2026-11-09",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true
+  },
+  {
+    "id": "sokoban",
+    "name": "推箱子",
+    "category": "益智",
+    "subtitle": "仓库谜题",
+    "description": "给每只木箱找到归宿，在小小仓库里，把每一步都想清楚。",
+    "controls": [
+      "方向键或 W / A / S / D 移动，手机可滑动棋盘或点方向按钮",
+      "把全部木箱推到金色圆点上即可过关；箱子只能推、不能拉",
+      "共有 20 个关卡，通关后解锁下一关，已解锁关卡可自由重玩",
+      "Z 或撤销按钮退回一步，最多保留最近 500 步",
+      "R 或重开本关恢复当前关的初始布局",
+      "P / Esc 暂停"
+    ],
+    "notes": "自动保存当前布局、撤销记录和解锁进度，每关记录最少步数。卡在角落时可撤销或重开本关。",
+    "touchHelp": "在棋盘上滑动，或点击方向按钮移动；卡住时点“撤销”。",
+    "controlHints": [
+      [
+        "方向键 / WASD",
+        "移动"
+      ],
+      [
+        "Z",
+        "撤销"
+      ],
+      [
+        "R",
+        "重开本关"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/puzzle-covers.png",
+    "coverPosition": [
+      1,
+      0
+    ],
+    "coverGrid": [
+      2,
+      1
+    ],
+    "entry": "games/sokoban/index.html",
+    "added": "2026-11-09",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true
   }
 ]

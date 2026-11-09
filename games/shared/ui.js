@@ -1,4 +1,4 @@
-import { createAudio } from './audio.js';
+import { createAudio } from './audio.js?v=puzzles-1';
 
 export function createUI({ title, eyebrow, help, theme, onStart, onRestart }) {
   document.body.className = theme;
