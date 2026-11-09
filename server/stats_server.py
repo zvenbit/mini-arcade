@@ -16,6 +16,10 @@ SHANGHAI = timezone(timedelta(hours=8))
 UUID = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')
 
 
+class SubmissionLimited(Exception):
+    pass
+
+
 class StatsStore:
     def __init__(self, path, pages, clock=time.time):
         self.path = str(path)
@@ -35,6 +39,14 @@ class StatsStore:
                     PRIMARY KEY(scope, day, visitor));
                 CREATE TABLE IF NOT EXISTS events (id TEXT PRIMARY KEY, created REAL NOT NULL);
                 CREATE INDEX IF NOT EXISTS events_created ON events(created);
+                CREATE TABLE IF NOT EXISTS suggestions (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    request_id TEXT NOT NULL UNIQUE, kind TEXT NOT NULL,
+                    title TEXT NOT NULL, description TEXT NOT NULL, nickname TEXT NOT NULL,
+                    created REAL NOT NULL);
+                CREATE TABLE IF NOT EXISTS suggestion_limits (
+                    day TEXT NOT NULL, visitor TEXT NOT NULL, count INTEGER NOT NULL,
+                    last_at REAL NOT NULL, PRIMARY KEY(day, visitor));
             ''')
             db.execute('INSERT OR IGNORE INTO meta VALUES (?, ?)', ('started_at', self.date()))
 
@@ -93,6 +105,63 @@ class StatsStore:
             return self.snapshot(db, page, day)
 
 
+    @staticmethod
+    def suggestion(row):
+        return dict(zip(('id', 'kind', 'title', 'description', 'nickname', 'createdAt'), row))
+
+    def list_suggestions(self, before=None):
+        if before is not None and (not isinstance(before, int) or not 0 < before < 2**63):
+            raise ValueError('Invalid cursor')
+        with closing(self.connect()) as db, db:
+            db.execute('BEGIN')
+            total = db.execute('SELECT COUNT(*) FROM suggestions').fetchone()[0]
+            rows = db.execute('''SELECT id, kind, title, description, nickname, created
+                FROM suggestions WHERE (? IS NULL OR id < ?) ORDER BY id DESC LIMIT 21''',
+                (before, before)).fetchall()
+            return {'items': [self.suggestion(row) for row in rows[:20]], 'total': total,
+                    'nextCursor': rows[19][0] if len(rows) > 20 else None}
+
+    def submit_suggestion(self, payload):
+        request_id, visitor_id = payload.get('requestId'), payload.get('visitorId')
+        if any(not isinstance(v, str) or not UUID.fullmatch(v) for v in (request_id, visitor_id)):
+            raise ValueError('Invalid identity')
+        kind = payload.get('kind')
+        if kind not in ('game', 'idea'):
+            raise ValueError('Invalid kind')
+        values = []
+        for key, minimum, maximum in [('title', 2, 40), ('description', 5, 500), ('nickname', 0, 20)]:
+            value = payload.get(key, '')
+            if not isinstance(value, str):
+                raise ValueError('Invalid text')
+            value = value.strip()
+            if not minimum <= len(value) <= maximum or any(ord(c) < 32 and c not in '\n\t\r' for c in value):
+                raise ValueError('Invalid text')
+            values.append(value)
+        title, description, nickname = values
+        now, day = self.clock(), self.date()
+        visitor = hashlib.sha256((day + ':' + visitor_id).encode()).hexdigest()
+        with closing(self.connect()) as db, db:
+            db.execute('BEGIN IMMEDIATE')
+            previous = db.execute('''SELECT id, kind, title, description, nickname, created
+                FROM suggestions WHERE request_id=?''', (request_id,)).fetchone()
+            if previous:
+                if previous[1:5] != (kind, title, description, nickname):
+                    raise ValueError('Request already used')
+                return self.suggestion(previous)
+            db.execute('DELETE FROM suggestion_limits WHERE day < ?', (day,))
+            limit = db.execute('SELECT count, last_at FROM suggestion_limits WHERE day=? AND visitor=?',
+                               (day, visitor)).fetchone()
+            if limit and (limit[0] >= 5 or now - limit[1] < 60):
+                raise SubmissionLimited()
+            cursor = db.execute('''INSERT INTO suggestions
+                (request_id, kind, title, description, nickname, created) VALUES (?, ?, ?, ?, ?, ?)''',
+                (request_id, kind, title, description, nickname, now))
+            db.execute('''INSERT INTO suggestion_limits VALUES (?, ?, 1, ?)
+                ON CONFLICT(day,visitor) DO UPDATE SET count=count+1, last_at=excluded.last_at''',
+                (day, visitor, now))
+            return self.suggestion((cursor.lastrowid, kind, title, description, nickname, now))
+
+
 class StatsHandler(SimpleHTTPRequestHandler):
     server_version = 'ArcadeStats/1'
 
@@ -141,6 +210,9 @@ class StatsHandler(SimpleHTTPRequestHandler):
                 self.respond(200, {'ok': True})
             elif path == '/api/stats':
                 self.respond(200, self.server.store.read(self.page()))
+            elif path == '/api/suggestions':
+                before = parse_qs(urlsplit(self.path).query).get('before', [None])[0]
+                self.respond(200, self.server.store.list_suggestions(int(before) if before is not None else None))
             elif self.static_allowed():
                 if urlsplit(self.path).path == '/':
                     self.path = '/index.html'
@@ -148,7 +220,7 @@ class StatsHandler(SimpleHTTPRequestHandler):
             else:
                 self.respond(404, {'error': 'Not found'})
         except ValueError:
-            self.respond(400, {'error': 'Invalid page'})
+            self.respond(400, {'error': 'Invalid request'})
         except sqlite3.Error:
             self.respond(503, {'error': 'Statistics unavailable'})
 
@@ -161,7 +233,8 @@ class StatsHandler(SimpleHTTPRequestHandler):
             self.respond(404, {'error': 'Not found'})
 
     def do_POST(self):
-        if urlsplit(self.path).path != '/api/visits':
+        path = urlsplit(self.path).path
+        if path not in ('/api/visits', '/api/suggestions'):
             return self.respond(404, {'error': 'Not found'})
         if self.headers.get('Origin') not in self.server.allowed_origins:
             return self.respond(403, {'error': 'Origin not allowed'})
@@ -169,15 +242,20 @@ class StatsHandler(SimpleHTTPRequestHandler):
             return self.respond(415, {'error': 'JSON required'})
         try:
             length = int(self.headers.get('Content-Length', '0'))
-            if not 0 < length <= 1024:
+            if not 0 < length <= (4096 if path == '/api/suggestions' else 1024):
                 return self.respond(413, {'error': 'Invalid request size'})
             payload = json.loads(self.rfile.read(length))
             if not isinstance(payload, dict):
                 raise ValueError('Invalid payload')
-            result = self.server.store.record(payload.get('page'), payload.get('eventId'), payload.get('visitorId'))
+            if path == '/api/suggestions':
+                result = self.server.store.submit_suggestion(payload)
+            else:
+                result = self.server.store.record(payload.get('page'), payload.get('eventId'), payload.get('visitorId'))
             self.respond(200, result)
+        except SubmissionLimited:
+            self.respond(429, {'error': '请间隔一分钟再推荐，每个浏览器每天最多提交 5 条。'})
         except (ValueError, UnicodeError):
-            self.respond(400, {'error': 'Invalid visit'})
+            self.respond(400, {'error': 'Invalid request'})
         except sqlite3.Error:
             self.respond(503, {'error': 'Statistics unavailable'})
 

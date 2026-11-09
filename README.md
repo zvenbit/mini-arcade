@@ -89,7 +89,15 @@ python3 -m unittest discover -s tests -v
 node --test tests/puzzles.test.mjs
 ```
 
-## 新增游戏
+## 玩法许愿池
+
+大厅顶部右侧「玩法许愿池」展示玩家公开推荐，按最新提交排序，每次读取 20 条，可继续加载全部历史推荐。「我也来推荐」可提交小游戏或新玩法：标题 2–40 字、介绍 5–500 字、昵称选填（最多 20 字）。不需要登录，不收集联系方式。推荐内容作为纯文本显示，不执行 HTML，也不自动打开用户提供的网址。
+
+数据保存于现有统计数据库的 `suggestions` 表，服务启动时自动建表，不修改原有统计或浏览器游戏存档。`GET /api/suggestions` 公开读取，`POST /api/suggestions` 接收同源 JSON 提交；`before` 游标用于分页。提交请求 ID 防止网络重试重复落库；同一浏览器每天最多 5 条、两次至少间隔 60 秒，按北京时间切日。这是基础频率限制，清除浏览器存储可以绕过，并非真人身份验证或完整防刷系统。当天浏览器去重摘要存于 `suggestion_limits`，下一天有提交时清理历史摘要，不存原始浏览器标识。
+
+本次升级除静态文件外，还需重新安装 `server/stats_server.py` 并重启 `mini-arcade-stats`，将现有 Nginx `/api/` 中的 `client_max_body_size` 从 `1k` 改为 `4k`，否则较长的中文推荐会被拒绝。具体步骤见 [deploy/HERMES-WISHES.txt](deploy/HERMES-WISHES.txt)。请保留生产数据库；本地测试推荐不会进入部署包。
+
+## 新增游戏步骤
 
 1. 将游戏的完整静态文件放入 `games/新游戏ID/`，确认可独立从该子目录启动。
 2. 将方形封面放入 `assets/`。建议使用 600 × 600 像素或更大的图片。

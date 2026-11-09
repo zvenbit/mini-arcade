@@ -1,0 +1,36 @@
+任务：更新 https://arcade.venai.cn/ 的「玩法许愿池」功能。
+仓库：https://github.com/zvenbit/mini-arcade，分支 main。
+
+本次不是仅替换静态文件：新增了推荐读写 API 和 SQLite 表，需要同步后端并重启服务。
+
+1. 确认实际代码目录、Nginx 文档根目录和 systemd 服务配置。记录当前提交并备份代码、配置和生产数据库。SQLite 使用在线 backup API，或停止服务后备份整个数据目录（含 WAL/SHM），不要只复制运行中的主库。
+
+2. 在仓库目录执行 git status --short，确认本地改动妥善保留，再 git pull --ff-only origin main。把最新静态文件同步到现有网站根目录，尤其 index.html、suggestions.js、suggestions.css。无需 npm 或构建。
+
+3. 沿用现有生产数据库 /var/lib/mini-arcade-stats/visits.sqlite3，不能清空或用测试库覆盖。按标准部署执行（自定义路径请按现有服务调整）：
+   sudo install -m 644 server/stats_server.py /opt/mini-arcade-stats/stats_server.py
+   sudo systemctl restart mini-arcade-stats
+   sudo systemctl is-active mini-arcade-stats
+新表 suggestions 和 suggestion_limits 会自动创建，已有访问统计保留。无需更改 systemd 单元或开放公网端口。
+
+4. 修改现有 Nginx /api/ 代理块中的 client_max_body_size：由 1k 改为 4k。参照 deploy/nginx-stats.conf 合并，不能直接覆盖整个站点配置，也不要重复添加 location。
+   sudo nginx -t
+通过后执行：
+   sudo systemctl reload nginx
+子目录部署沿用现有 /arcade/api/ 前缀重写规则，新的 suggestions 接口随同一 /api/ 代理生效。
+
+5. 更新 CDN 缓存（若有），确保首页和新 JS/CSS 生效。不要清除玩家浏览器网站数据。
+
+6. 验收：
+   GET https://arcade.venai.cn/api/health 应返回 {"ok":true}。
+   GET https://arcade.venai.cn/api/suggestions 应返回 items、total、nextCursor；新库无推荐时 total 为 0，不应导入虚构推荐。
+   点击顶部「玩法许愿池」能看到公开列表或空状态。
+   「我也来推荐」能填写小游戏/新玩法、标题、介绍和可选昵称；提交后立即出现在列表，换一个浏览器也能看到。
+   如需线上写入验收，使用真实推荐，避免留下测试垃圾；HTTP 和写入回归测试可先在临时库运行 python3 -m unittest discover -s tests -v。
+   手机端和深色主题下表单、关闭按钮、列表可用；原有六款游戏和统计正常。
+
+7. 持久化与回滚：
+   推荐和访问统计共用现有生产数据库，后续备份同时包含两者。数据库不能放入公开网站目录或部署包。
+   如需回滚，恢复前一提交的静态文件和服务脚本，再重启服务即可；保留当前数据库，新增加的表不影响旧版本统计。
+
+完成后回复实际部署提交、接口和页面验收结果。

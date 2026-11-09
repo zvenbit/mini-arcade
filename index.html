@@ -7,6 +7,7 @@
 <meta name="description" content="挑一个，马上开玩。收藏喜欢的小游戏，随时回来玩一局。">
 <link rel="icon" href="games/rooftop-reset/assets/mark.svg">
 <link rel="stylesheet" href="styles.css?v=visits-footer-3">
+<link rel="stylesheet" href="suggestions.css?v=1">
 <title>小游戏大厅 · 挑一个，马上开玩</title>
 </head>
 <body data-page="lobby">
@@ -43,6 +44,9 @@
 <span>我的收藏</span>
 </a>
 </nav>
+<button id="open-wishes" class="wish-entry" aria-haspopup="dialog" aria-controls="wish-dialog">
+<span class="wish-spark" aria-hidden="true">✦</span><span>玩法许愿池</span><span class="wish-entry-note">下一款，听你的</span>
+</button>
 <button id="theme" class="icon-button" aria-label="切换深色模式">
 <svg class="icon" aria-hidden="true">
 <use href="assets/icons.svg#moon">
@@ -124,7 +128,40 @@
 </footer>
 <div id="toast" class="toast" role="status" hidden>
 </div>
+<dialog id="wish-dialog" class="wish-dialog" aria-labelledby="wish-title">
+<div class="wish-heading">
+<div><p class="eyebrow">THE NEXT GAME IS YOUR IDEA</p><h2 id="wish-title">玩法许愿池<span class="accent-dot"> ✦</span></h2></div>
+<button id="close-wishes" class="icon-button" aria-label="关闭玩法许愿池">✕</button>
+</div>
+<section id="wish-board" aria-label="玩家推荐列表">
+<div class="wish-intro"><p>下一款，你想玩什么？<br><span>把喜欢的小游戏、脑洞玩法留在这里，一起让大厅更好玩。</span></p>
+<button id="write-wish" class="button primary">＋ 我也来推荐</button></div>
+<div class="wish-list-heading"><h3>大家的推荐 <span id="wish-count">—</span></h3><button id="refresh-wishes" class="text-button">刷新推荐 ↻</button></div>
+<p id="wish-status" class="wish-status" role="status" aria-live="polite"></p>
+<div id="wish-list" class="wish-list"></div>
+<div id="wish-empty" class="wish-empty" hidden><span aria-hidden="true">✦</span><h3>第一份好点子，等你留下</h3><p>想重温一款经典，或试试自己的脑洞？<br>点击「我也来推荐」，许下第一个愿望。</p></div>
+<button id="more-wishes" class="button secondary wish-more" hidden>查看更多推荐</button>
+</section>
+<section id="wish-compose" hidden aria-label="填写推荐">
+<button id="back-to-wishes" class="text-button">← 返回大家的推荐</button>
+<h3>分享一个你想玩的游戏</h3>
+<p class="wish-form-note">提交后会公开展示给所有玩家。只需好点子，不用留下联系方式。</p>
+<form id="wish-form">
+<fieldset><legend>你想推荐</legend><label class="wish-kind"><input type="radio" name="kind" value="game" checked> 一款小游戏</label><label class="wish-kind"><input type="radio" name="kind" value="idea"> 一个新玩法</label></fieldset>
+<label class="wish-field" for="wish-name">游戏名称或玩法标题 <span>必填 · 2–40 字</span></label>
+<input id="wish-name" name="title" placeholder="例如：俄罗斯方块 / 两个人一起闯迷宫" minlength="2" maxlength="40" required>
+<label class="wish-field" for="wish-description">怎么玩，为什么想玩？ <span>必填 · 5–500 字</span></label>
+<textarea id="wish-description" name="description" rows="4" placeholder="说说玩法、喜欢的地方，或希望增加的小创意…" minlength="5" maxlength="500" required></textarea>
+<div id="wish-length" class="wish-length">0 / 500</div>
+<label class="wish-field" for="wish-nickname">你的昵称 <span>选填 · 最多 20 字</span></label>
+<input id="wish-nickname" name="nickname" placeholder="留空则显示「匿名玩家」" maxlength="20" autocomplete="nickname">
+<p id="wish-form-status" class="wish-status" role="status" aria-live="polite"></p>
+<div class="wish-submit-row"><span>每分钟 1 条，每天最多 5 条</span><button id="submit-wish" type="submit" class="button primary">提交推荐 ↗</button></div>
+</form>
+</section>
+</dialog>
 <script type="module" src="lobby.js?v=puzzles-1">
 </script>
+<script type="module" src="suggestions.js?v=1"></script>
 </body>
 </html>
