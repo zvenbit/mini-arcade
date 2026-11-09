@@ -1182,3 +1182,24 @@ dialog>h2{
   .stats-values dd { margin-top: 3px; }
   .stats-help { margin-left: 0; }
 }
+
+/* Keep the lobby counters quiet, just above the footer. */
+.visit-stats-footer {
+  justify-content: center;
+  gap: 8px 16px;
+  margin: 28px auto 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  text-align: center;
+}
+.visit-stats-footer .stats-caption { display: none; }
+.visit-stats-footer .stats-values { width: auto; justify-content: center; gap: 6px 12px; }
+.visit-stats-footer .stats-values > div { display: flex; gap: 4px; white-space: nowrap; }
+.visit-stats-footer .stats-values > div + div::before { content: '·'; margin-right: 8px; }
+.visit-stats-footer .stats-values dd { margin: 0; font-size: 12px; font-weight: 500; }
+.visit-stats-footer .stats-help { margin: 0; }
+.visit-stats-footer .stats-help[open] { flex-basis: 100%; }
+.visit-stats-footer .stats-status { margin: 0; }
