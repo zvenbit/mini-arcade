@@ -1,6 +1,0 @@
-Tool: built-in image_gen
-Reference: assets/puzzle-sprites.png, worker in row 2 column 3.
-Output: assets/sokoban-worker-front.png
-
-undefined
-

@@ -157,5 +157,3 @@ Rooftop Reset 的游戏前端和美术来自 2026 年 11 月 7 日的 https://ww
 扫雷使用薄荷花园背景、立体方块、红旗和地雷角色；推箱子使用暖灯仓库背景、紫色砖墙、木箱、工人和金色目标格。两款游戏沿用原来的规则、音效和存档键。桌面端为操作面板与棋盘左右布局，手机端为上下布局；减少动态效果系统设置会禁用移动和翻格动画。
 
 游戏内素材由内置 image_gen 按封面生成：`assets/puzzle-sprites.png` 是 4×2 透明角色/道具图集，`assets/puzzle-scenes.png` 是两格场景背景。完整生成提示保存于 `assets/puzzle-art-prompts.txt`。新增的 `games/shared/puzzle-art.js` 仅处理操作面板布局与动效，不改变游戏规则。
-
-推箱子正面角色使用独立透明素材 `assets/sokoban-worker-front.png`，同时用于棋盘人物和操作面板头像。该素材由内置 image_gen 参考原工人生成，保留黄帽、蓝色背带裤与棕色手套/靴子，改为正面站姿；完整提示词见 `assets/sokoban-worker-front.prompt.txt`。
