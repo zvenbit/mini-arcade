@@ -285,5 +285,111 @@
       "touch"
     ],
     "restartMessage": true
+  },
+  {
+    "id": "tetris",
+    "name": "俄罗斯方块",
+    "category": "街机",
+    "subtitle": "水晶消行",
+    "description": "让彩色水晶整齐落下，填满横行、逐级加速，在星光里挑战新的纪录。",
+    "cover": "assets/blocks-memory-covers.png",
+    "coverGrid": [
+      2,
+      1
+    ],
+    "coverPosition": [
+      0,
+      0
+    ],
+    "entry": "games/tetris/index.html?v=flow-4",
+    "added": "2026-11-11",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "← → / A D 移动，↑ / W 顺时针旋转，Z 逆时针旋转",
+      "↓ / S 加速，双击极速下落，空格立即落到底部；轮廓线显示落点",
+      "C / Shift 暂存或交换方块，每次落地前只能暂存一次",
+      "一次消除 1 / 2 / 3 / 4 行分别获得 100 / 300 / 500 / 800 × 等级分，连续消行有额外奖励",
+      "每消除 10 行提高等级，最高 20 级；堆到顶部结束",
+      "手机点击或按住游戏内按钮；P / Esc 暂停，新一局重新开始"
+    ],
+    "notes": "自动保存棋盘、分数、方块序列和暂存方块，刷新后点击继续游戏恢复。最佳分数单独保存。",
+    "touchHelp": "按住左右按钮移动；按住 ↓ 加速，双击 ↓ 极速下落；点击旋转、暂存或硬降。全屏游玩棋盘更大。",
+    "controlHints": [
+      [
+        "← →",
+        "移动"
+      ],
+      [
+        "↑ / Z",
+        "旋转"
+      ],
+      [
+        "Space",
+        "硬降"
+      ],
+      [
+        "C",
+        "暂存"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
+  },
+  {
+    "id": "memory",
+    "name": "翻牌配对",
+    "category": "益智",
+    "subtitle": "主题记忆",
+    "description": "在经典纸牌与缤纷果园之间切换，记住每张牌的位置，用更少的步数找到全部配对。",
+    "cover": "assets/blocks-memory-covers.png",
+    "coverGrid": [
+      2,
+      1
+    ],
+    "coverPosition": [
+      1,
+      0
+    ],
+    "entry": "games/memory/index.html?v=card-theme-1",
+    "added": "2026-11-11",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击或轻触卡牌，每次翻开两张，找到相同水果",
+      "相同的卡牌保持翻开，不同的卡牌稍后自动盖回",
+      "每翻开第二张卡计一步，全部配对成功即通关",
+      "轻松 6 对、标准 8 对、挑战 12 对、进阶 15 对、大师 20 对；切换难度会开始新局",
+      "Tab 或方向键选择卡牌，空格 / 回车翻开",
+      "P / Esc 暂停，暂停期间不计时、不会自动盖牌"
+    ],
+    "notes": "两套主题分别保存进度和成绩，自动保存当前配对和用时，各难度独立记录最少步数，同步数时比较用时。离开后重新进入，不匹配的两张牌会盖回。最佳成绩保留。",
+    "touchHelp": "轻触两张水果卡进行配对；挑战难度可上下滚动，或全屏游玩。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "翻牌"
+      ],
+      [
+        "方向键",
+        "选牌"
+      ],
+      [
+        "Space / Enter",
+        "翻牌"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
   }
 ]
