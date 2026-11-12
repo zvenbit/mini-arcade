@@ -391,5 +391,189 @@
         "暂停"
       ]
     ]
+  },
+  {
+    "id": "link",
+    "name": "连连看",
+    "category": "益智",
+    "subtitle": "果园连线",
+    "description": "找到相同水果，用最多两个拐弯的路线连起来，一点点收好整座果园。",
+    "cover": "assets/garden-board-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      0,
+      0
+    ],
+    "entry": "games/link/index.html?v=garden-four-1",
+    "added": "2026-11-11",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击两张相同水果，连线最多转弯两次，中间不能穿过其他水果",
+      "路线可以经过棋盘外侧的空道；全部消除即通关",
+      "轻松 18 对、标准 24 对、挑战 32 对，切换难度开始新局",
+      "提示会标出一对可连接水果；可手动重排，没有可连接对时自动重排",
+      "方向键选择水果，空格 / Enter 选中，P / Esc 暂停"
+    ],
+    "notes": "自动保存棋盘、用时、提示及重排次数，各难度分别记录最短通关时间。没有倒计时，可慢慢思考。",
+    "touchHelp": "轻触两张水果进行连接；需要帮助时使用提示或重新排列。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "选水果"
+      ],
+      [
+        "方向键",
+        "选格"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
+  },
+  {
+    "id": "tictactoe",
+    "name": "井字棋",
+    "category": "益智",
+    "subtitle": "花园对弈",
+    "description": "叉叉和圆圈的小小对决：抢先连成三个，和电脑或身边的朋友比一局。",
+    "cover": "assets/garden-board-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      1,
+      0
+    ],
+    "entry": "games/tictactoe/index.html?v=garden-four-2",
+    "added": "2026-11-11",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "X 先手，轮流在空格落子；横、竖、斜连成三个即胜",
+      "人机模式你执 X，电脑执 O；也可切换双人同屏",
+      "棋盘填满无人连线为平局；不能覆盖已有棋子",
+      "悔棋在人机模式撤回你与电脑最近一轮；电脑未落子时只撤回你的一步",
+      "方向键选择格子，空格 / Enter 落子，P / Esc 暂停"
+    ],
+    "notes": "自动保存当前对局与对战模式。电脑会选择最优应对，双方发挥正确时会平局。",
+    "touchHelp": "轻触空格落子；选择双人同屏，可和朋友轮流使用同一台设备。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "落子"
+      ],
+      [
+        "方向键",
+        "选格"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
+  },
+  {
+    "id": "gomoku",
+    "name": "五子棋",
+    "category": "益智",
+    "subtitle": "林间棋局",
+    "description": "在暖木棋盘上落下一颗棋子，寻找横、竖、斜五子相连的机会。",
+    "cover": "assets/garden-board-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      0,
+      1
+    ],
+    "entry": "games/gomoku/index.html?v=garden-four-2",
+    "added": "2026-11-11",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "15 × 15 棋盘，黑棋先行，双方轮流在交叉点落子",
+      "采用无禁手规则，横、竖、斜连续五颗或以上即胜",
+      "人机模式你执黑棋，电脑执白棋；可切换双人同屏",
+      "人机悔棋撤回最近一轮，双人悔棋撤回一步；金色小圈标出最近落子",
+      "方向键选择交叉点，空格 / Enter 落子，P / Esc 暂停"
+    ],
+    "notes": "自动保存当前对局和模式。人机对手会寻找成五、阻挡和连线机会，适合休闲练习。",
+    "touchHelp": "轻触棋盘交叉点落子；金色小圈标出上一手，可使用悔棋纠正误触。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "落子"
+      ],
+      [
+        "方向键",
+        "选点"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
+  },
+  {
+    "id": "sliding",
+    "name": "数字华容道",
+    "category": "益智",
+    "subtitle": "数字归位",
+    "description": "把彩色数字块滑进空位，从 1 开始排好顺序，享受一步步归位的满足感。",
+    "cover": "assets/garden-board-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      1,
+      1
+    ],
+    "entry": "games/sliding/index.html?v=garden-four-4",
+    "added": "2026-11-11",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击空位相邻的数字块，将它滑入空位；每次只能移动一格",
+      "按从左到右、从上到下排列数字，最后一格留空即通关",
+      "支持 3 × 3 和 4 × 4 两档，每局通过合法移动打乱，保证有解",
+      "方向键控制数字块滑动方向，可撤销最近 200 步；计时从第一次移动开始",
+      "切换大小或新一局重新打乱，P / Esc 暂停"
+    ],
+    "notes": "保存当前布局、步数、用时和撤销历史。各尺寸分别记录最少步数，同步数时比较用时。",
+    "touchHelp": "轻触空位旁亮起的数字块移动；误操作可以撤销一步。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "滑动数字"
+      ],
+      [
+        "方向键",
+        "滑动数字块"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
   }
 ]
