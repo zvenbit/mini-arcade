@@ -1,0 +1,15 @@
+import {setupPastime,control,keyboardGrid,readSave,writeSave,levelPicker,readRecords} from '../shared/pastime-ui.js';
+import {newGame,move,undo,solved,solution,validSave} from './logic.js';
+let state=newGame(),buttons=[],hinted=-1;const saved=readSave('lights:run',null);if(validSave(saved))state=saved;const records=readRecords('lights');
+const {ui,settings,detail}=setupPastime({id:'lights',title:'点灯游戏',eyebrow:'FIREFLY NIGHT',emblem:'☼',help:'点击灯泡，翻转自己和上下左右的灯。\n让全部灯熄灭 · 方向键选灯 · Enter / 空格切换',restart});
+document.querySelector('.scores small').textContent='步数';document.querySelectorAll('.scores small')[1].textContent='最少步数';
+const select=levelPicker(settings,state.level,level=>{state=newGame(level);hinted=-1;build();save();ui.hide();ui.sound('start');});
+const grid=document.createElement('div');grid.className='lights-grid';grid.setAttribute('aria-label','点灯棋盘');ui.surface.append(grid);
+const hintButton=control(ui,'✦ 提示',()=>{if(ui.blocked||solved(state))return;hinted=solution(state)?.[0]??-1;state.hints++;render();save();ui.sound('hint');});
+const undoButton=control(ui,'↶ 撤销',()=>{if(!undo(state))return;hinted=-1;ui.hide();render();save();ui.sound('undo');});
+function save(){writeSave('lights:run',state);}
+function build(){grid.style.setProperty('--size',state.size);grid.replaceChildren();buttons=state.board.map((_,i)=>{const b=document.createElement('button');b.type='button';b.className='lamp-cell';b.innerHTML='<span class="bulb"><i></i></span>';b.addEventListener('click',()=>{if(ui.blocked||!move(state,i))return;hinted=-1;ui.sound('lamp');render();save();if(solved(state))finish();});grid.append(b);return b;});keyboardGrid(grid,buttons,state.size);render();}
+function render(){buttons.forEach((b,i)=>{b.classList.toggle('lit',!!state.board[i]);b.classList.toggle('hinted',i===hinted);b.setAttribute('aria-label',`第 ${Math.floor(i/state.size)+1} 行第 ${i%state.size+1} 列，${state.board[i]?'亮灯':'灭灯'}`);b.setAttribute('aria-pressed',String(!!state.board[i]));});ui.score(state.moves,records[state.level]??'—');ui.status(hinted>=0?'试试发光边框的这盏灯':'目标：让所有灯泡都熄灭');detail.textContent=`第 ${state.level} / 30 关 · 亮灯 ${state.board.filter(Boolean).length} · 提示 ${state.hints}`;undoButton.disabled=!state.history.length;hintButton.disabled=solved(state);}
+function finish(){if(!Number.isSafeInteger(records[state.level])||state.moves<records[state.level]){records[state.level]=state.moves;writeSave('lights:records',records);}render();ui.show('win','晚安，小灯泡',`用 ${state.moves} 步熄灭了所有灯，使用提示 ${state.hints} 次。`,state.level<30?'下一关':'再玩本关',()=>{state=newGame(state.level<30?state.level+1:state.level);select.value=state.level;hinted=-1;build();save();ui.hide();ui.sound('start');});}
+function restart(){state=newGame(Number(select.value));hinted=-1;build();save();ui.hide();ui.sound('start');}
+ui.onPause(save);window.addEventListener('pagehide',save);build();if(solved(state))finish();else ui.show('ready',validSave(saved)?'接着点亮你的思路':'让夜晚安静下来','每次点击会翻转自己与上下左右的灯。全部熄灭就过关，30 关均有解。',validSave(saved)?'继续游戏':'开始游戏',()=>{ui.hide();ui.sound('start');});

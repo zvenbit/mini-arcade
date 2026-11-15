@@ -1,0 +1,57 @@
+body.pastime::before { background-image:url('../../assets/pastime-covers.png'); opacity:.36; }
+body.whack { background:#285d36; }body.whack::before { background-position:left top; }
+body.block1010 { background:#463366; --muted:#ead8f8; }body.block1010::before { background-position:right top; }
+body.lights { background:#1d3056; --muted:#d2e1ff; }body.lights::before { background-position:left bottom; }
+body.pipes { background:#206e60; }body.pipes::before { background-position:right bottom; }
+.pastime .collection-panel { background:linear-gradient(145deg,#325c39f2,#1d4034f5); }
+.block1010 .collection-panel { background:linear-gradient(145deg,#6a4d80f2,#392b52f5); }
+.lights .collection-panel { background:linear-gradient(145deg,#38496cf2,#1d2b49f5); }
+.pipes .collection-panel { background:linear-gradient(145deg,#2c7262f2,#17493ff5); }
+.pastime-note { margin-top:14px; font-size:13px; line-height:1.9; color:#fff0bd; }.pastime-note span { font-size:11px; color:var(--muted); }
+.pastime .arena { padding:15px; border:5px solid #d49a4d; border-radius:27px; background:#e8b56a url('../../assets/sliding-wood-frame.svg?v=2') center / 100% 100%; box-shadow:inset 0 2px 0 #fff0b5,0 6px 0 #88532c,0 15px 30px #12201e60; }
+.pastime button { user-select:none; -webkit-user-select:none; }
+.pastime button:focus-visible { outline:3px solid #fff3a1; outline-offset:-3px; z-index:2; }
+.pastime .board-settings select { background:#253e44; }
+.pastime .hinted { outline:3px solid #ffdc68; outline-offset:-3px; box-shadow:inset 0 0 20px #ffe68366,0 0 14px #ffe39180; }
+/* Nine orchard burrows, with a clipped rising character and a soil rim. */
+.whack .arena { background:linear-gradient(140deg,#91cc68,#449064); border-color:#c59a55; }
+.whack-meter { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; padding:10px 13px; background:#234b36c9; border-radius:15px; color:#fff0b5; font-size:13px; }
+.whack-meter strong { font-size:23px; }.whack-meter>div { flex-basis:100%; height:6px; background:#123729; margin-top:8px; border-radius:5px; overflow:hidden; }.whack-meter i { display:block; height:100%; background:linear-gradient(90deg,#adf17c,#fff299); border-radius:5px; }.whack-meter.urgent i { background:#ffb365; }
+.whack-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px 5px; padding:16px 0 5px; }
+.mole-hole { position:relative; padding:0; aspect-ratio:1; border:0; background:transparent; min-width:0; min-height:0; isolation:isolate; }
+.mole-hole:hover { filter:none; }.hole-shadow { position:absolute; inset:47% 4% 6%; background:radial-gradient(ellipse at 50% 85%,#6d4727,#35271c 65%); border-radius:50%; box-shadow:0 4px 0 #b3dd7970,inset 0 5px 4px #132b2580; }
+.mole-clip { position:absolute; inset:0 0 13%; overflow:hidden; border-radius:0 0 45% 45%; }.mole-art { position:absolute; inset:0; background:url('../../assets/orchard-mole.svg') center bottom / contain no-repeat; transform:translateY(104%); transition:transform .1s ease-out; }.mole-hole.up .mole-art { transform:translateY(0); }.mole-hole.golden .mole-art { filter:sepia(.35) saturate(1.8) drop-shadow(0 0 5px #ffe872); }
+.hole-rim { position:absolute; inset:47% 4% 6%; border:6px solid #a57538; border-top-color:#7e572e; border-bottom-color:#d2a154; border-radius:50%; pointer-events:none; z-index:1; clip-path:inset(50% 0 0); }
+.mole-hole small { position:absolute; bottom:-1%; left:40%; width:20%; border-radius:7px; color:#fff0bc; background:#45653b; font-size:11px; }.hit-points { position:absolute; left:0; right:0; top:20%; opacity:0; color:#fff6b4; font-weight:900; font-size:28px; text-shadow:0 2px 0 #8f642d; pointer-events:none; }.mole-hole.hit .hit-points { animation:mole-points .5s ease-out; }
+@keyframes mole-points { 0% { opacity:1; transform:translateY(10px) scale(.8); } 30% { opacity:1; transform:translateY(0) scale(1.12); } 100% { opacity:0; transform:translateY(-25px); } }
+/* Jewel blocks, with a three-piece tray and a placement preview. */
+.block1010 .arena { max-width:550px; }.block-grid { display:grid; grid-template-columns:repeat(10,minmax(0,1fr)); aspect-ratio:1; gap:3px; padding:8px; border-radius:12px; background:linear-gradient(145deg,#694c3e,#926240); box-shadow:inset 0 3px 8px #38232188; }
+.block-cell { min-width:0; min-height:0; padding:0; border:0; border-radius:5px; background:#bc875f44; box-shadow:inset 0 1px 2px #241c2c55; position:relative; }.block-cell[data-color='0'] { background:#bc875f44; }
+.jewel,.block-cell:not([data-color='0']) { background:linear-gradient(145deg,var(--jewel-light),var(--jewel-color)); box-shadow:inset 0 2px 0 #ffffff99,inset 2px 0 1px #ffffff44,inset -2px -4px 0 #00000020,0 2px 2px #33233c55; border-radius:5px; }
+[data-color='1'] { --jewel-light:#8bffe0; --jewel-color:#00b79b; }[data-color='2'] { --jewel-light:#e5b1ff; --jewel-color:#ac5de5; }[data-color='3'] { --jewel-light:#ffe78c; --jewel-color:#eea72e; }[data-color='4'] { --jewel-light:#ffb2a3; --jewel-color:#ef6e6a; }[data-color='5'] { --jewel-light:#a4deff; --jewel-color:#489fdc; }
+.block-cell.ghost::after { content:''; position:absolute; inset:0; border:2px solid #c8ffda; background:#91ffc777; border-radius:5px; pointer-events:none; }.block-cell.ghost.invalid::after { border-color:#ffb0a8; background:#f16b6b77; }
+.block-cell.clearing::before { content:''; position:absolute; z-index:1; inset:0; border-radius:5px; background:#fff1ac; box-shadow:0 0 15px #fff29d; animation:block-flash .18s ease-out forwards; pointer-events:none; }
+@keyframes block-flash { to { opacity:0; transform:scale(.35) rotate(15deg); } }
+.piece-tray { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; margin-top:12px; }.tray-piece { display:grid; place-items:center; height:118px; padding:8px 4px; border:2px solid #d6ae83; background:#573d55; border-radius:14px; touch-action:none; }.tray-piece.selected { border-color:#fff0a1; background:#745175; box-shadow:0 0 0 2px #ffc36c80; }.tray-piece:disabled { opacity:.6; }.piece-art { display:grid; --unit:min(22px,calc(86px / var(--cols)),calc(90px / var(--rows))); grid-template-columns:repeat(var(--cols),var(--unit)); grid-template-rows:repeat(var(--rows),var(--unit)); gap:2px; pointer-events:none; }.jewel { width:var(--unit); height:var(--unit); }.piece-used { color:#e1e9af; font-size:30px; }
+/* Warm light bulbs on a midnight-blue recessed board. */
+.lights .arena { max-width:550px; }.lights-grid { display:grid; grid-template-columns:repeat(var(--size),minmax(0,1fr)); gap:8px; padding:13px; aspect-ratio:1; background:linear-gradient(135deg,#1b294b,#394d76); border-radius:15px; box-shadow:inset 0 3px 10px #0e173b; }
+.lamp-cell { position:relative; min-width:0; min-height:0; padding:0; border:1px solid #657399; border-radius:15px; background:linear-gradient(140deg,#405783,#243756); box-shadow:inset 0 2px 0 #98afce55,0 4px 0 #182d4f; transition:background .12s; }.lamp-cell.lit { border-color:#ffe78f; background:radial-gradient(ellipse at 50% 42%,#ffdb6a,#c28a3c); box-shadow:inset 0 2px 1px #fff4b7,0 3px 0 #8e622d,0 0 12px #ffd86866; }
+.bulb { position:absolute; inset:16% 24% 30%; border-radius:50% 50% 39% 39%; background:radial-gradient(circle at 32% 20%,#adc9f0,#45629b 38%,#243c66); box-shadow:inset 0 1px 2px #c3e3ff88,0 3px 5px #14233f66; }.bulb::before { content:''; position:absolute; width:30%; height:19%; top:14%; left:16%; border-radius:50%; background:#e5f5ff99; transform:rotate(-30deg); }.bulb::after { content:''; position:absolute; left:22%; right:22%; top:91%; height:30%; border-radius:3px 3px 7px 7px; background:repeating-linear-gradient(0deg,#5f6881 0 3px,#b5b4a9 4px 6px); box-shadow:0 3px 0 #1c2c47; }.lit .bulb { background:radial-gradient(circle at 32% 20%,#fffce3,#fff18b 35%,#ffcd32 75%); box-shadow:inset 0 2px 2px #fffce8,0 0 17px #fff3a4; }.lit .bulb::after { background:repeating-linear-gradient(0deg,#ad7a2d 0 3px,#ffdc71 4px 6px); box-shadow:0 3px 0 #8c6027; }.lit .bulb i { position:absolute; inset:45% 31% 5%; border:2px solid #fffbe1; border-bottom:0; border-radius:6px 6px 0 0; }
+/* Rounded brass-collared pipes. Blue water is only shown on the connected component. */
+.pipes .arena { max-width:570px; }.pipe-legend { display:flex; justify-content:space-between; padding:0 4px 12px; color:#643f25; font-size:12px; font-weight:800; }.pipe-grid { display:grid; grid-template-columns:repeat(var(--size),minmax(0,1fr)); gap:3px; padding:7px; aspect-ratio:1; border-radius:12px; background:#24584f; box-shadow:inset 0 3px 8px #163b32; }
+.pipe-cell { position:relative; padding:0; min-width:0; min-height:0; border:1px solid #a0f4c4; border-radius:11px; background:linear-gradient(145deg,#8af1b5,#3ab197); box-shadow:inset 0 2px 0 #d8ffd388,inset 0 -3px 0 #167b6c; }.pipe-cell svg { display:block; width:100%; height:100%; overflow:hidden; }.pipe-cell path { fill:none; stroke-linejoin:round; stroke-linecap:butt; }.pipe-shadow { stroke:#1e7265; stroke-width:32px; transform:translateY(3px); }.pipe-body { stroke:#27baa5; stroke-width:29px; }.pipe-shine { stroke:#afffea; stroke-width:15px; opacity:.6; }.pipe-water { stroke:#32caff; stroke-width:16px; opacity:0; }.wet .pipe-water { opacity:1; filter:drop-shadow(0 0 3px #54eaff); }.pipe-collar { fill:#f5c95e; stroke:#9c7130; stroke-width:1.5px; }.pipe-cell.inlet { border-left:4px solid #62dcff; }.pipe-cell.outlet { border-right:4px solid #ffeb91; }
+@media (min-width:701px) and (max-height:650px) {
+  .block1010 .arena { max-width:min(100%,calc(100svh - 150px)); padding:10px; }.tray-piece { height:83px; }.piece-art { --unit:min(20px,calc(72px / var(--cols)),calc(56px / var(--rows))); }.block-grid { gap:2px; padding:5px; }
+  .whack .arena { max-width:min(100%,calc(100svh - 120px)); }.whack-grid { gap:5px; padding-top:8px; }
+  .pipes .arena { max-width:min(100%,calc(100svh - 65px)); }
+  .lights .arena { max-width:min(100%,calc(100svh - 36px)); }
+}
+@media (max-width:700px) {
+  .pastime .arena { padding:10px; border-width:4px; border-radius:20px; }.pastime-note { grid-column:1/-1; margin:0; font-size:11px; line-height:1.6; }.pastime-note br { display:none; }.pastime-note span { margin-left:8px; font-size:10px; }
+  .whack .arena,.block1010 .arena { max-width:min(100%,calc(100svh - 335px)); }
+  .block1010 .collection-panel h1 { font-size:18px; white-space:nowrap; }.block1010 .board-settings { display:none; }.block1010 .game-shell { gap:10px; padding:10px 0 12px; }
+  .whack-meter { font-size:11px; padding:7px 10px; }.whack-meter strong { font-size:19px; }.whack-grid { gap:7px 3px; padding-top:10px; }.hit-points { font-size:23px; }
+  .block-grid { gap:2px; padding:5px; }.piece-tray { gap:6px; margin-top:8px; }.tray-piece { height:90px; }.piece-art { --unit:min(20px,calc(72px / var(--cols)),calc(56px / var(--rows))); }
+  .lights-grid { gap:5px; padding:8px; }.lamp-cell { border-radius:10px; }.pipe-grid { padding:4px; gap:2px; }.pipe-cell { border-radius:8px; }.pipe-legend { font-size:10px; padding-bottom:7px; }
+}
+@media (prefers-reduced-motion:reduce) { .mole-art,.lamp-cell { transition:none; }.mole-hole.hit .hit-points,.block-cell.clearing::before { animation:none; } }

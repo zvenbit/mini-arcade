@@ -70,7 +70,7 @@ test('sliding shuffles are unsolved and solvable for both sizes; legal moves and
 });
 test('sliding rejects impossible/corrupt saves and detects the final move',()=>{
   const s=slide.newGame();s.board=[1,2,3,4,5,6,7,0,8];assert.ok(slide.move(s,8));assert.ok(slide.solved(s.board));assert.equal(slide.move(s,7),false);
-  const broken=slide.newGame(4);[broken.board[0],broken.board[1]]=[broken.board[1],broken.board[0]];assert.equal(slide.validSave(broken),false);
+  const broken=slide.newGame(4);broken.board=[2,1,3,4,5,6,7,8,9,10,11,12,13,14,15,0];assert.equal(slide.validSave(broken),false);
   assert.equal(slide.validSave({...s,history:[Array(9).fill(0)]}),false);
 });
 test('sliding arrows move the numbered tile in the pressed direction',()=>{

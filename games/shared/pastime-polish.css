@@ -1,0 +1,62 @@
+/* Painted toy materials shared by the four orchard games. */
+.pastime .collection-panel { box-shadow:inset 0 2px 1px #f7e8b64d,inset 0 -4px 0 #102e3140,0 10px 22px #122c3f55; }
+.pastime .arena { box-shadow:inset 0 2px 1px #fff4be,0 7px 0 #985a29,0 10px 0 -2px #683c24,0 18px 26px #122b3855; }
+/* A raised grassy playfield, soft soil edges, and a painted mole. */
+.whack .arena { background:radial-gradient(ellipse at 25% 0%,#d1ed93aa,transparent 65%),repeating-linear-gradient(115deg,#74b66544 0 2px,transparent 2px 12px),linear-gradient(145deg,#96d977,#559d62); border-color:#d6a155; }
+.hole-shadow { background:radial-gradient(ellipse at 50% 100%,#885a31 0%,#45301d 50%,#1f221a 85%); border:3px solid #9e713e; box-shadow:0 5px 0 #b8d67b88,0 7px 7px #345f4844,inset 0 8px 9px #1c201dc9; }
+.hole-rim { border-width:7px; border-bottom-color:#d8a35e; border-left-color:#b58947; border-right-color:#81592d; filter:drop-shadow(0 2px 1px #4b522d88); }
+.mole-art { background-image:url('../../assets/pastime-sprites.png'); background-size:400% 200%; background-position:66.666667% 100%; filter:drop-shadow(0 4px 3px #40241e66); }
+.mole-hole.bonk .mole-art { animation:mole-bonk .27s ease-out; }
+.toy-hammer { position:absolute; z-index:8; width:100%; height:100%; left:16%; top:2%; background:url('../../assets/pastime-sprites.png') 100% 100% / 400% 200%; pointer-events:none; opacity:0; transform-origin:82% 86%; filter:drop-shadow(0 4px 2px #432d2880); }
+.mole-hole.hit .toy-hammer { animation:hammer-swing .3s cubic-bezier(.22,.8,.25,1); }
+.hit-burst { position:absolute; inset:25% 20% 20%; z-index:7; opacity:0; pointer-events:none; background:radial-gradient(circle,#fffbd2 0 10%,#ffe57eaa 15%,transparent 45%); clip-path:polygon(50% 0,59% 32%,85% 10%,70% 42%,100% 50%,68% 58%,90% 86%,59% 70%,50% 100%,41% 70%,10% 88%,31% 58%,0 50%,32% 42%,14% 12%,41% 31%); }
+.mole-hole.bonk .hit-burst { animation:hammer-burst .3s ease-out; }.hit-points { z-index:9; }
+@keyframes hammer-swing { 0%{opacity:0;transform:translate(12%,-18%) rotate(42deg)} 12%{opacity:1;transform:translate(4%,-9%) rotate(25deg)} 36%{opacity:1;transform:translate(-8%,10%) rotate(-25deg)} 64%{opacity:1;transform:translate(2%,-3%) rotate(4deg)} 100%{opacity:0;transform:translate(16%,-18%) rotate(28deg)} }
+@keyframes hammer-burst { 0%,20%{opacity:0;transform:scale(.3)} 36%{opacity:1;transform:scale(1.2)} 100%{opacity:0;transform:scale(1.55)} }
+@keyframes mole-bonk { 0%,25%{transform:translateY(0) scale(1)} 40%{transform:translateY(12%) scale(1.08,.83)} 65%{transform:translateY(0) scale(.96,1.02)} 100%{transform:translateY(104%)} }
+/* Faceted, pillowed jewel blocks and a full-size floating dragged piece. */
+.block-grid { background:repeating-linear-gradient(4deg,#ffd99809 0 2px,transparent 3px 14px),linear-gradient(145deg,#754a2d,#9e663a); box-shadow:inset 0 5px 9px #46291699,inset 0 1px 0 #4f301f; }
+.block-cell[data-color='0'] { background:linear-gradient(150deg,#5d3c2e66,#c68b4b55); box-shadow:inset 0 2px 3px #38282166,0 1px 0 #e6b67766; }
+.jewel,.block-cell:not([data-color='0']) { position:relative; border:1px solid #ffffff55; background:radial-gradient(ellipse at 27% 8%,#ffffff77,transparent 48%),linear-gradient(145deg,var(--jewel-light),var(--jewel-color) 63%); box-shadow:inset 0 2px 1px #ffffffb3,inset 2px 0 1px #ffffff55,inset -2px -4px 1px #16323b55,0 2px 0 #41302b88,0 3px 4px #241a2b66; border-radius:6px; }
+.jewel::after { content:''; position:absolute; inset:2px 2px 4px; border:1px solid #ffffff44; border-radius:3px; pointer-events:none; }
+.tray-piece { background:radial-gradient(ellipse at 50% 30%,#77567d,#49344e); box-shadow:inset 0 3px 8px #271d3b88,0 2px 0 #ffd28b99; }.tray-piece.selected { background:radial-gradient(ellipse at top,#a77ba3,#654568); }
+.tray-piece.dragging .piece-art { opacity:.15; }.tray-piece.dragging { border-style:dashed; }
+.drag-piece { position:fixed; z-index:90; pointer-events:none; filter:drop-shadow(0 9px 7px #15283666); transform:translateZ(0); }
+.drag-piece .piece-art { opacity:.95; }.drag-piece.valid .jewel { outline:1px solid #d5ffe3; }.drag-piece.invalid .jewel { outline:2px solid #ff9a8a; }
+.drag-badge { position:absolute; top:calc(100% + 9px); left:50%; transform:translateX(-50%); white-space:nowrap; border-radius:20px; padding:5px 10px; font-size:11px; font-weight:750; background:#f9efd7; color:#6b503c; box-shadow:0 3px 10px #172d3c33; }
+.drag-piece.valid .drag-badge { background:#dcffda; color:#246747; }.drag-piece.invalid .drag-badge { background:#ffe2d4; color:#9a4434; }
+.block-cell.ghost::after { border:2px solid #a8ffcc; background:#91ffc755; box-shadow:0 0 7px #a1ffd4aa; }.block-cell.ghost.invalid::after { border-color:#ffb3a2; background:#f16b6b66; box-shadow:0 0 5px #f69a8977; }
+/* The cover's glass bulbs now sit in deep, individually beveled sockets. */
+.lights-grid { background:radial-gradient(ellipse at top,#3e5076,#14223e); gap:7px; box-shadow:inset 0 5px 12px #0b152a; }
+.lamp-cell { background:linear-gradient(145deg,#405479,#20324f); border:2px solid #667b9d; box-shadow:inset 2px 3px 4px #10213b88,inset -1px -1px 0 #8ca0b04d,0 3px 0 #111f39; }
+.lamp-cell.lit { background:radial-gradient(ellipse at 50% 46%,#e9b95b,#7e643b); border-color:#f5d788; box-shadow:inset 0 2px 2px #fff5b3,0 4px 0 #775029,0 0 12px #ffdb5b55; }
+.bulb,.lit .bulb { inset:5%; border-radius:0; background:url('../../assets/pastime-sprites.png') 0 100% / 400% 200%; box-shadow:none; filter:drop-shadow(0 4px 2px #0f203955); }
+.lit .bulb { background-position:33.333333% 100%; filter:drop-shadow(0 0 5px #ffe48588); }.bulb::before,.bulb::after,.lit .bulb i { display:none; }
+/* Painted cylindrical pipe sprites use a canonical N/E elbow or N/S straight. */
+.pipe-legend { align-items:center; gap:6px; padding:0 0 9px; font-size:11px; }
+.water-label,.exit-label { border-radius:20px; padding:5px 8px; box-shadow:inset 0 1px 0 #ffffffaa,0 2px 0 #845f3555; white-space:nowrap; }
+.water-label { background:linear-gradient(#d6faff,#8ce0f5); color:#186184; }.exit-label { background:linear-gradient(#fff1ba,#f3ce70); color:#825123; }
+.pipe-legend .pipe-help { min-height:27px; padding:4px 8px; border:1px solid #b77b38; border-radius:14px; background:linear-gradient(#fff5d7,#efcc8a); font-size:10px; font-weight:750; color:#6b471f; white-space:nowrap; }
+.pipe-board-wrap { position:relative; padding:0 16px; }
+.pipe-grid { gap:3px; padding:6px; border-radius:14px; background:#225d4f; box-shadow:inset 0 4px 9px #183c33,0 2px 0 #ffe0a0; }
+.pipe-cell { border:0; border-radius:13px; background:radial-gradient(ellipse at 20% 0%,#d4ffbe77,transparent 60%),linear-gradient(145deg,#79e4a6,#36ac85 70%,#238773); box-shadow:inset 0 3px 1px #ccffd1,inset 2px 0 1px #bcffcf88,inset -2px -4px 0 #176d5e,0 2px 3px #123c32aa; overflow:hidden; }
+.pipe-cell.inlet,.pipe-cell.outlet { border:0; }.pipe-cell.inlet { box-shadow:inset 3px 0 0 #98edff,inset 0 3px 1px #ccffd1,inset -2px -4px 0 #176d5e; }.pipe-cell.outlet { box-shadow:inset -3px 0 0 #ffe791,inset 0 3px 1px #ccffd1,inset 0 -4px 0 #176d5e; }
+.pipe-cell.hinted { outline:3px solid #fff0a2; outline-offset:-3px; }.pipe-cell.wet { background:radial-gradient(ellipse at 30% 0%,#d0ffe199,transparent 60%),linear-gradient(145deg,#74e9be,#2baf93); }
+.pipe-rotor { position:absolute; inset:2px; transform:rotate(var(--turn)); pointer-events:none; filter:drop-shadow(1px 4px 2px #124d4e80); }
+.pipe-art { position:absolute; inset:0; background-image:url('../../assets/pastime-sprites.png'); background-size:400% 200%; transform-origin:0 0; pointer-events:none; }
+.elbow .pipe-art { transform:translate(14%,-11%) scale(.98,.926); }.elbow .pipe-dry { background-position:0 0; }.elbow .pipe-wet { background-position:33.333333% 0; }
+.straight .pipe-art { transform:translateY(-12%) scaleY(1.28); }.straight .pipe-dry { background-position:66.666667% 0; }.straight .pipe-wet { background-position:100% 0; }
+.pipe-wet { opacity:0; transition:opacity .15s; }.wet .pipe-wet { opacity:1; }.wet .pipe-dry { opacity:0; }
+.pipe-underlay::before,.pipe-underlay::after { content:''; position:absolute; background:linear-gradient(90deg,#a77a27,#fff1ac 32%,#f9cb52 58%,#b37d26); width:28%; height:15%; top:-2%; left:36%; border-radius:2px; }
+.elbow .pipe-underlay::after { top:36%; left:87%; width:15%; height:28%; background:linear-gradient(#a77a27,#fff1ac 32%,#f9cb52 58%,#b37d26); }.straight .pipe-underlay::after { top:87%; }
+.pipe-port { position:absolute; z-index:3; display:grid; place-items:center; width:30px; height:30px; border-radius:50%; border:4px solid #e6b94f; box-shadow:inset 0 2px 4px #0b5378aa,0 0 0 1px #8f6a2b,0 4px 3px #183e4480,0 -1px 0 2px #ffeab2; transform:translateY(-50%); pointer-events:none; }
+.source-port { left:0; top:calc(6px + (100% - 12px) / var(--size) / 2); background:radial-gradient(circle at 30% 25%,#9bffff,#0a9fdb 60%,#14678b); color:white; }
+.exit-port { right:0; top:calc(100% - 6px - (100% - 12px) / var(--size) / 2); background:radial-gradient(circle at 30% 25%,#fff7c9,#dfaf42); color:#765223; }.pipe-port b { font-size:19px; line-height:1; }.exit-port.connected { background:#7aeeff; color:#126e8c; box-shadow:0 0 17px #98faff; }
+/* A native modal keeps the visual rules separate from the per-move hint. */
+.pipe-guide { box-sizing:border-box; width:min(94vw,460px); max-height:94svh; padding:22px; border:3px solid #e6bc76; border-radius:24px; background:linear-gradient(145deg,#fff9df,#f0e4bb); color:#31564b; box-shadow:0 20px 65px #071e3880,inset 0 2px 0 #fffdf0; overflow:auto; text-align:center; }
+.pipe-guide::backdrop { background:#102f3db3; backdrop-filter:blur(3px); }.pipe-guide .guide-close { position:absolute; right:10px; top:8px; width:28px; min-height:28px; padding:0; font-size:23px; border:0; background:#e4d6ad; color:#6b5c39; border-radius:50%; }
+.guide-eyebrow { font-size:9px; letter-spacing:2px; color:#8c996a; margin:0 0 7px; }.pipe-guide h2 { font-size:24px; margin:0 0 6px; }.pipe-guide img { width:100%; display:block; margin:10px auto; }.pipe-guide p:not(.guide-eyebrow) { font-size:12px; line-height:1.8; margin:10px 0; }.pipe-guide .guide-done { background:linear-gradient(#77d7a5,#3ba988); border:1px solid #298569; color:#fffde9; font-size:13px; font-weight:bold; box-shadow:inset 0 1px 0 #baffd9,0 3px 0 #25745e; border-radius:12px; padding:9px 22px; }
+@media(min-width:701px) and (max-height:650px){ .pipes .arena { max-width:min(100%,calc(100svh - 78px)); }.pipe-guide { padding:15px; }.pipe-guide img { max-height:235px; }.pipe-guide h2 { font-size:21px; } }
+@media(max-width:700px){ .pipe-board-wrap { padding:0 12px; }.pipe-port { width:26px;height:26px;border-width:3px; }.pipe-port b { font-size:17px; }.pipe-legend { gap:3px;font-size:9px; }.water-label,.exit-label { padding:4px 6px; }.pipe-legend .pipe-help { font-size:9px;padding:4px 6px; }.pipe-guide { padding:18px 12px; }.pipe-guide h2 { font-size:21px; }.pipe-guide p:not(.guide-eyebrow) { font-size:11px; }.hole-rim { border-width:5px; }.toy-hammer { width:105%;height:105%; }.jewel,.block-cell:not([data-color='0']) { border-radius:5px; }.lights-grid { gap:5px; }.lamp-cell { border-width:1px; } }
+@media(prefers-reduced-motion:reduce){ .pipe-wet { transition:none; }.mole-hole.bonk .mole-art { animation:none; }.mole-hole.hit .toy-hammer { animation:hammer-still .2s linear; }.mole-hole.bonk .hit-burst { animation:none; } }
+@keyframes hammer-still { 0%,90%{opacity:1;transform:rotate(-15deg)} 100%{opacity:0} }

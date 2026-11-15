@@ -575,5 +575,184 @@
         "暂停"
       ]
     ]
+  },
+  {
+    "id": "whack",
+    "name": "打地鼠",
+    "category": "休闲",
+    "subtitle": "果园反应挑战",
+    "description": "果园里的小地鼠探出头啦！看准时机敲一下，60 秒里挑战更高纪录。",
+    "cover": "assets/pastime-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      0,
+      0
+    ],
+    "entry": "games/whack/index.html?v=pastime-polish-1",
+    "added": "2026-11-14",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击冒头的地鼠会挥锤敲击；普通地鼠 10 分，金色地鼠 20 分",
+      "连续命中每次额外加 2 分，最高额外 10 分；点空或漏掉会中断连击",
+      "一局 60 秒，地鼠逐渐加快；数字键 1～9 对应棋盘从左到右、从上到下的九个洞",
+      "P / Esc 暂停，切到后台时暂停计时"
+    ],
+    "notes": "保存当前分数、剩余时间和最高纪录。",
+    "touchHelp": "轻触冒头的地鼠，留意金色地鼠。",
+    "controlHints": [
+      [
+        "点击 / 1～9",
+        "敲地鼠"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
+  },
+  {
+    "id": "block1010",
+    "name": "1010 方块拼盘",
+    "category": "益智",
+    "subtitle": "宝石木盘",
+    "description": "把彩色方块放进 10×10 木盘，填满整行或整列，享受连排消除的满足感。",
+    "cover": "assets/pastime-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      1,
+      0
+    ],
+    "entry": "games/block1010/index.html?v=pastime-polish-1",
+    "added": "2026-11-14",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "拖起下方方块，整块跟手移动；绿色预览时松手放下，红色表示无法放置，松手后退回",
+      "拖动会按拿起的位置对齐棋盘，触屏时方块抬高避免手指遮挡；也可点选再点击棋盘，以所点格为形状包围框左上角",
+      "填满一行或一列立即消除；每放一格加 1 分，每消一行或一列加 10 分",
+      "三个方块都使用后补充；剩余所有方块都无处放置时结束；可撤销最后一步",
+      "数字键 1～3 选方块，方向键选棋盘位置，Enter / 空格放置，P / Esc 暂停"
+    ],
+    "notes": "不限时，自动保存棋盘、待选方块、分数及一次撤销，记录最高分。",
+    "touchHelp": "按住下方方块拖入棋盘，绿色时松手放下；也可点选方块后轻触棋盘。",
+    "controlHints": [
+      [
+        "点击 / 拖动",
+        "放置方块"
+      ],
+      [
+        "1～3",
+        "选方块"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
+  },
+  {
+    "id": "lights",
+    "name": "点灯游戏",
+    "category": "益智",
+    "subtitle": "萤火夜晚",
+    "description": "轻点一盏灯，会带动身旁的灯一起变化。让整片夜色安静下来，解开灯光谜题。",
+    "cover": "assets/pastime-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      0,
+      1
+    ],
+    "entry": "games/lights/index.html?v=pastime-polish-1",
+    "added": "2026-11-14",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击灯泡，同时翻转自己和上下左右四个邻居的亮灭状态",
+      "让全部灯熄灭即可通关，30 关全部可解",
+      "第 1～10 关为 3×3，第 11～20 关为 4×4，第 21～30 关为 5×5",
+      "提示标出当前解法中的一盏灯；可撤销，或新一局重置本关",
+      "方向键选灯，Enter / 空格切换；P / Esc 暂停"
+    ],
+    "notes": "保存关卡、棋盘和操作历史，各关分别记录最少步数。提示次数会在结算时显示。",
+    "touchHelp": "轻触灯泡翻转；金色提示框标出建议点击的位置。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "翻转灯泡"
+      ],
+      [
+        "方向键",
+        "选择灯泡"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
+  },
+  {
+    "id": "pipes",
+    "name": "水管接通",
+    "category": "益智",
+    "subtitle": "花园水路",
+    "description": "旋转弯弯绕绕的水管，让蓝色水流穿过花园，从进水口一路到达出口。",
+    "cover": "assets/pastime-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      1,
+      1
+    ],
+    "entry": "games/pipes/index.html?v=pastime-polish-1",
+    "added": "2026-11-14",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击一段水管，顺时针旋转 90°；相邻接口必须面对面才能通水",
+      "将左上蓝色进水口接到右下金色出水口，不必用到全部水管；点击「玩法图解」查看通关示意",
+      "30 关全部可解：第 1～10 关为 4×4，第 11～20 关为 5×5，第 21～30 关为 6×6",
+      "蓝色管道表示已通水；「找一段」标出需要旋转的水管，「撤销」退回上一步",
+      "方向键选格，Enter / 空格旋转；P / Esc 暂停"
+    ],
+    "notes": "保存当前关卡、水管方向和操作历史，各关分别记录最少旋转次数。",
+    "touchHelp": "轻触水管旋转，把蓝色进水口连到金色出水口；点「玩法图解」看通关示意。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "旋转水管"
+      ],
+      [
+        "方向键",
+        "选水管"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ]
   }
 ]
