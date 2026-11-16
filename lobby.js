@@ -14,7 +14,7 @@ function readState() {
     view: ['all', 'recent', 'favorites'].includes(query.get('view')) ? query.get('view') : 'all',
     query: (query.get('q') || '').slice(0, 100),
     category: query.get('category') || '全部',
-    sort: query.get('sort') === 'name' ? 'name' : 'added'
+    sort: query.get('sort') === 'name' ? 'name' : 'order'
   };
 }
 
@@ -22,7 +22,7 @@ function updateUrl() {
   const url = new URL(location.href);
   url.search = '';
   for (const [key, value] of Object.entries({ view: state.view, q: state.query, category: state.category, sort: state.sort })) {
-    if (value && !['all', '全部', 'added'].includes(value)) url.searchParams.set(key, value);
+    if (value && !['all', '全部', 'order'].includes(value)) url.searchParams.set(key, value);
   }
   history.replaceState(null, '', url);
 }
@@ -145,9 +145,9 @@ function render() {
   result.sort((a, b) => {
     if (state.sort === 'name') return a.name.localeCompare(b.name, 'zh-CN');
     if (state.view === 'recent') return preferences.recent.find(item => item.id === b.id).at - preferences.recent.find(item => item.id === a.id).at;
-    return String(b.added || '').localeCompare(String(a.added || ''));
+    return (a.order ?? Infinity) - (b.order ?? Infinity) || String(b.added || '').localeCompare(String(a.added || ''));
   });
-  sort.options[0].textContent = state.view === 'recent' ? '最近游玩' : '最近加入';
+  sort.options[0].textContent = state.view === 'recent' ? '最近游玩' : '默认顺序';
   document.getElementById('list-title').replaceChildren(document.createTextNode(names[state.view] + ' '), element('span', '', String(result.length)));
   grid.replaceChildren(...result.map(createCard));
   empty.hidden = result.length > 0;
@@ -169,7 +169,7 @@ search.addEventListener('input', () => { state.query = search.value; updateUrl()
 document.getElementById('search-form').addEventListener('submit', event => event.preventDefault());
 sort.addEventListener('change', () => { state.sort = sort.value; updateUrl(); render(); });
 document.getElementById('reset-filter').addEventListener('click', () => {
-  state = { view: 'all', query: '', category: '全部', sort: 'added' };
+  state = { view: 'all', query: '', category: '全部', sort: 'order' };
   updateUrl();
   render();
 });
@@ -177,7 +177,7 @@ for (const link of document.querySelectorAll('[data-view]')) {
   link.addEventListener('click', event => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    state = { view: link.dataset.view, query: '', category: '全部', sort: 'added' };
+    state = { view: link.dataset.view, query: '', category: '全部', sort: 'order' };
     updateUrl();
     render();
     window.scrollTo(0, 0);

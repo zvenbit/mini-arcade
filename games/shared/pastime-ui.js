@@ -1,4 +1,4 @@
-import {setup,control,keyboardGrid,readSave,writeSave} from './board-ui.js?v=pastime-1';
+import {setup,control,keyboardGrid,readSave,writeSave} from './board-ui.js?v=twenty-1';
 export {control,keyboardGrid,readSave,writeSave};
 export function setupPastime(options){const result=setup(options);document.body.classList.add('pastime');return result;}
 export function levelPicker(settings,level,change){

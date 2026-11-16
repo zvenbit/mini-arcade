@@ -1,4 +1,4 @@
-import {createUI,readSave,writeSave} from './ui.js?v=pastime-1';
+import {createUI,readSave,writeSave} from './ui.js?v=twenty-1';
 import {frame} from './collection-ui.js';
 export {readSave,writeSave};
 export const clockText=value=>`${Math.floor(value/60)}:${String(Math.floor(value%60)).padStart(2,'0')}`;

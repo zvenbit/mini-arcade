@@ -50,139 +50,8 @@
         "Esc",
         "暂停"
       ]
-    ]
-  },
-  {
-    "id": "2048",
-    "name": "2048",
-    "category": "益智",
-    "subtitle": "数字合并",
-    "description": "把相同数字合在一起，每一次滑动都离 2048 更近一步。",
-    "coverPosition": [
-      1,
-      0
     ],
-    "controls": [
-      "方向键或 W / A / S / D 移动所有方块",
-      "手机可在棋盘上滑动，或使用下方方向按钮",
-      "相同数字每一步最多合并一次，合并后的数值计入得分",
-      "达到 2048 后可继续挑战，无法移动时结束",
-      "P / Esc 暂停，新一局清空当前棋盘"
-    ],
-    "notes": "棋盘和得分自动保存在当前浏览器，离开后可回来续玩。新一局会清空当前局面，最佳成绩会保留。",
-    "touchHelp": "在棋盘上滑动，或点击方向按钮合并数字。",
-    "controlHints": [
-      [
-        "方向键",
-        "合并数字"
-      ],
-      [
-        "W A S D",
-        "移动"
-      ],
-      [
-        "P / Esc",
-        "暂停"
-      ]
-    ],
-    "cover": "assets/game-covers.png",
-    "entry": "games/2048/index.html",
-    "added": "2026-11-07",
-    "devices": [
-      "keyboard",
-      "touch"
-    ],
-    "restartMessage": true
-  },
-  {
-    "id": "snake",
-    "name": "贪吃蛇",
-    "category": "休闲",
-    "subtitle": "经典玩法",
-    "description": "在绿色棋盘里寻找苹果，慢慢长大，也记得给自己留一条路。",
-    "coverPosition": [
-      0,
-      1
-    ],
-    "controls": [
-      "方向键或 W / A / S / D 转向",
-      "手机可滑动棋盘或点击下方方向按钮",
-      "每颗苹果 10 分，小蛇变长，得分增加后逐渐加速",
-      "不能直接掉头，碰墙或碰到自己时结束",
-      "P / Esc 暂停，新一局重新开始"
-    ],
-    "notes": "本局进度在离开页面后结束，最佳成绩保存在当前浏览器。",
-    "touchHelp": "滑动棋盘或点击方向按钮，控制小蛇转向。",
-    "controlHints": [
-      [
-        "方向键",
-        "转向"
-      ],
-      [
-        "W A S D",
-        "转向"
-      ],
-      [
-        "P / Esc",
-        "暂停"
-      ]
-    ],
-    "cover": "assets/game-covers.png",
-    "entry": "games/snake/index.html",
-    "added": "2026-11-07",
-    "devices": [
-      "keyboard",
-      "touch"
-    ],
-    "restartMessage": true
-  },
-  {
-    "id": "breakout",
-    "name": "打砖块",
-    "category": "街机",
-    "subtitle": "经典复刻",
-    "description": "接住每一次反弹，逐行消除砖阵，挑战越来越难的 50 个关卡。",
-    "coverPosition": [
-      1,
-      1
-    ],
-    "controls": [
-      "移动鼠标，或使用 ← → / A D 控制挡板",
-      "手机可在棋盘上拖动，或按住下方方向按钮",
-      "点击开始游戏发球，待发球时也可按空格",
-      "共有 50 关，每关 3 条生命；多层砖需要击中 2～3 次，击碎得 10～30 分",
-      "所有砖块都在屏幕内；清空任意一整行，剩余砖块全部自动下移一行",
-      "球落到底部消耗一条生命，生命用完时结束",
-      "P / Esc 暂停；失败可重试本关，新一局从第 1 关重新开始"
-    ],
-    "notes": "球速、砖块行数和耐久逐步提升，挡板逐渐变窄。过关保存分数和下一关进度，每关恢复 3 条生命。刷新后从已保存关卡的开局继续，当前关砖块状态不保存。",
-    "touchHelp": "在棋盘内左右拖动，或按住方向按钮移动挡板。",
-    "controlHints": [
-      [
-        "← → / A D",
-        "移动挡板"
-      ],
-      [
-        "鼠标",
-        "控制挡板"
-      ],
-      [
-        "Space",
-        "发球"
-      ],
-      [
-        "P / Esc",
-        "暂停"
-      ]
-    ],
-    "cover": "assets/game-covers.png",
-    "entry": "games/breakout/index.html?v=breakout-50",
-    "added": "2026-11-07",
-    "devices": [
-      "keyboard",
-      "touch"
-    ],
-    "restartMessage": true
+    "order": 1
   },
   {
     "id": "minesweeper",
@@ -233,58 +102,8 @@
       "keyboard",
       "touch"
     ],
-    "restartMessage": true
-  },
-  {
-    "id": "sokoban",
-    "name": "推箱子",
-    "category": "益智",
-    "subtitle": "仓库谜题",
-    "description": "给每只木箱找到归宿，在小小仓库里，把每一步都想清楚。",
-    "controls": [
-      "方向键或 W / A / S / D 移动，手机可滑动棋盘或点方向按钮",
-      "把全部木箱推到金色圆点上即可过关；箱子只能推、不能拉",
-      "共有 20 个关卡，通关后解锁下一关，已解锁关卡可自由重玩",
-      "Z 或撤销按钮退回一步，最多保留最近 500 步",
-      "R 或重开本关恢复当前关的初始布局",
-      "P / Esc 暂停"
-    ],
-    "notes": "自动保存当前布局、撤销记录和解锁进度，每关记录最少步数。卡在角落时可撤销或重开本关。",
-    "touchHelp": "在棋盘上滑动，或点击方向按钮移动；卡住时点“撤销”。",
-    "controlHints": [
-      [
-        "方向键 / WASD",
-        "移动"
-      ],
-      [
-        "Z",
-        "撤销"
-      ],
-      [
-        "R",
-        "重开本关"
-      ],
-      [
-        "P / Esc",
-        "暂停"
-      ]
-    ],
-    "cover": "assets/puzzle-covers.png",
-    "coverPosition": [
-      1,
-      0
-    ],
-    "coverGrid": [
-      2,
-      1
-    ],
-    "entry": "games/sokoban/index.html",
-    "added": "2026-11-09",
-    "devices": [
-      "keyboard",
-      "touch"
-    ],
-    "restartMessage": true
+    "restartMessage": true,
+    "order": 2
   },
   {
     "id": "tetris",
@@ -339,7 +158,506 @@
         "P / Esc",
         "暂停"
       ]
-    ]
+    ],
+    "order": 3
+  },
+  {
+    "id": "tictactoe",
+    "name": "井字棋",
+    "category": "益智",
+    "subtitle": "花园对弈",
+    "description": "叉叉和圆圈的小小对决：抢先连成三个，和电脑或身边的朋友比一局。",
+    "cover": "assets/garden-board-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      1,
+      0
+    ],
+    "entry": "games/tictactoe/index.html?v=garden-four-2",
+    "added": "2026-11-11",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "X 先手，轮流在空格落子；横、竖、斜连成三个即胜",
+      "人机模式你执 X，电脑执 O；也可切换双人同屏",
+      "棋盘填满无人连线为平局；不能覆盖已有棋子",
+      "悔棋在人机模式撤回你与电脑最近一轮；电脑未落子时只撤回你的一步",
+      "方向键选择格子，空格 / Enter 落子，P / Esc 暂停"
+    ],
+    "notes": "自动保存当前对局与对战模式。电脑会选择最优应对，双方发挥正确时会平局。",
+    "touchHelp": "轻触空格落子；选择双人同屏，可和朋友轮流使用同一台设备。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "落子"
+      ],
+      [
+        "方向键",
+        "选格"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "order": 4
+  },
+  {
+    "id": "pipes",
+    "name": "水管接通",
+    "category": "益智",
+    "subtitle": "花园水路",
+    "description": "旋转弯弯绕绕的水管，让蓝色水流穿过花园，从进水口一路到达出口。",
+    "cover": "assets/pastime-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      1,
+      1
+    ],
+    "entry": "games/pipes/index.html?v=pastime-polish-1",
+    "added": "2026-11-14",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击一段水管，顺时针旋转 90°；相邻接口必须面对面才能通水",
+      "将左上蓝色进水口接到右下金色出水口，不必用到全部水管；点击「玩法图解」查看通关示意",
+      "30 关全部可解：第 1～10 关为 4×4，第 11～20 关为 5×5，第 21～30 关为 6×6",
+      "蓝色管道表示已通水；「找一段」标出需要旋转的水管，「撤销」退回上一步",
+      "方向键选格，Enter / 空格旋转；P / Esc 暂停"
+    ],
+    "notes": "保存当前关卡、水管方向和操作历史，各关分别记录最少旋转次数。",
+    "touchHelp": "轻触水管旋转，把蓝色进水口连到金色出水口；点「玩法图解」看通关示意。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "旋转水管"
+      ],
+      [
+        "方向键",
+        "选水管"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "order": 5
+  },
+  {
+    "id": "onejump",
+    "name": "Flappy Bird",
+    "category": "动作",
+    "subtitle": "森林穿管",
+    "description": "轻点让小鸡扑腾，穿过森林里的上下管道，挑战更远的飞行纪录。",
+    "cover": "assets/flappy-cover.png",
+    "entry": "games/onejump/index.html?v=flappy-name-2",
+    "added": "2026-11-16",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击画面、扑腾按钮或按 Space / 向上 / W，每次输入向上扑腾一次",
+      "松开后受重力自然下落；可以在空中连续扑腾，按住按键不会自动连跳",
+      "完整穿过一组上下管道得 1 分，撞到管道或地面结束",
+      "准备起飞后等待你的第一次输入；P / Esc 暂停，重新起飞立即重开"
+    ],
+    "notes": "保存小鸡飞行的最高分，与旧版跳木箱分数分开记录；刷新或离开后重新开始。",
+    "touchHelp": "连续轻点画面或扑腾按钮，控制高度，从上下管道的空隙飞过。",
+    "controlHints": [
+      [
+        "Space / 点击",
+        "向上扑腾"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "order": 6
+  },
+  {
+    "id": "snake",
+    "name": "贪吃蛇",
+    "category": "休闲",
+    "subtitle": "经典玩法",
+    "description": "在绿色棋盘里寻找苹果，慢慢长大，也记得给自己留一条路。",
+    "coverPosition": [
+      0,
+      1
+    ],
+    "controls": [
+      "方向键或 W / A / S / D 转向",
+      "手机可滑动棋盘或点击下方方向按钮",
+      "每颗苹果 10 分，小蛇变长，得分增加后逐渐加速",
+      "不能直接掉头，碰墙或碰到自己时结束",
+      "P / Esc 暂停，新一局重新开始"
+    ],
+    "notes": "本局进度在离开页面后结束，最佳成绩保存在当前浏览器。",
+    "touchHelp": "滑动棋盘或点击方向按钮，控制小蛇转向。",
+    "controlHints": [
+      [
+        "方向键",
+        "转向"
+      ],
+      [
+        "W A S D",
+        "转向"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/game-covers.png",
+    "entry": "games/snake/index.html",
+    "added": "2026-11-07",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "order": 7
+  },
+  {
+    "id": "gomoku",
+    "name": "五子棋",
+    "category": "益智",
+    "subtitle": "林间棋局",
+    "description": "在暖木棋盘上落下一颗棋子，寻找横、竖、斜五子相连的机会。",
+    "cover": "assets/garden-board-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      0,
+      1
+    ],
+    "entry": "games/gomoku/index.html?v=garden-four-2",
+    "added": "2026-11-11",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "15 × 15 棋盘，黑棋先行，双方轮流在交叉点落子",
+      "采用无禁手规则，横、竖、斜连续五颗或以上即胜",
+      "人机模式你执黑棋，电脑执白棋；可切换双人同屏",
+      "人机悔棋撤回最近一轮，双人悔棋撤回一步；金色小圈标出最近落子",
+      "方向键选择交叉点，空格 / Enter 落子，P / Esc 暂停"
+    ],
+    "notes": "自动保存当前对局和模式。人机对手会寻找成五、阻挡和连线机会，适合休闲练习。",
+    "touchHelp": "轻触棋盘交叉点落子；金色小圈标出上一手，可使用悔棋纠正误触。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "落子"
+      ],
+      [
+        "方向键",
+        "选点"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "order": 8
+  },
+  {
+    "id": "2048",
+    "name": "2048",
+    "category": "益智",
+    "subtitle": "数字合并",
+    "description": "把相同数字合在一起，每一次滑动都离 2048 更近一步。",
+    "coverPosition": [
+      1,
+      0
+    ],
+    "controls": [
+      "方向键或 W / A / S / D 移动所有方块",
+      "手机可在棋盘上滑动，或使用下方方向按钮",
+      "相同数字每一步最多合并一次，合并后的数值计入得分",
+      "达到 2048 后可继续挑战，无法移动时结束",
+      "P / Esc 暂停，新一局清空当前棋盘"
+    ],
+    "notes": "棋盘和得分自动保存在当前浏览器，离开后可回来续玩。新一局会清空当前局面，最佳成绩会保留。",
+    "touchHelp": "在棋盘上滑动，或点击方向按钮合并数字。",
+    "controlHints": [
+      [
+        "方向键",
+        "合并数字"
+      ],
+      [
+        "W A S D",
+        "移动"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/game-covers.png",
+    "entry": "games/2048/index.html",
+    "added": "2026-11-07",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "order": 9
+  },
+  {
+    "id": "block1010",
+    "name": "1010 方块拼盘",
+    "category": "益智",
+    "subtitle": "宝石木盘",
+    "description": "把彩色方块放进 10×10 木盘，填满整行或整列，享受连排消除的满足感。",
+    "cover": "assets/pastime-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      1,
+      0
+    ],
+    "entry": "games/block1010/index.html?v=pastime-polish-1",
+    "added": "2026-11-14",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "拖起下方方块，整块跟手移动；绿色预览时松手放下，红色表示无法放置，松手后退回",
+      "拖动会按拿起的位置对齐棋盘，触屏时方块抬高避免手指遮挡；也可点选再点击棋盘，以所点格为形状包围框左上角",
+      "填满一行或一列立即消除；每放一格加 1 分，每消一行或一列加 10 分",
+      "三个方块都使用后补充；剩余所有方块都无处放置时结束；可撤销最后一步",
+      "数字键 1～3 选方块，方向键选棋盘位置，Enter / 空格放置，P / Esc 暂停"
+    ],
+    "notes": "不限时，自动保存棋盘、待选方块、分数及一次撤销，记录最高分。",
+    "touchHelp": "按住下方方块拖入棋盘，绿色时松手放下；也可点选方块后轻触棋盘。",
+    "controlHints": [
+      [
+        "点击 / 拖动",
+        "放置方块"
+      ],
+      [
+        "1～3",
+        "选方块"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "order": 10
+  },
+  {
+    "id": "lights",
+    "name": "点灯游戏",
+    "category": "益智",
+    "subtitle": "萤火夜晚",
+    "description": "轻点一盏灯，会带动身旁的灯一起变化。让整片夜色安静下来，解开灯光谜题。",
+    "cover": "assets/pastime-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      0,
+      1
+    ],
+    "entry": "games/lights/index.html?v=pastime-polish-1",
+    "added": "2026-11-14",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "点击灯泡，同时翻转自己和上下左右四个邻居的亮灭状态",
+      "让全部灯熄灭即可通关，30 关全部可解",
+      "第 1～10 关为 3×3，第 11～20 关为 4×4，第 21～30 关为 5×5",
+      "提示标出当前解法中的一盏灯；可撤销，或新一局重置本关",
+      "方向键选灯，Enter / 空格切换；P / Esc 暂停"
+    ],
+    "notes": "保存关卡、棋盘和操作历史，各关分别记录最少步数。提示次数会在结算时显示。",
+    "touchHelp": "轻触灯泡翻转；金色提示框标出建议点击的位置。",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "翻转灯泡"
+      ],
+      [
+        "方向键",
+        "选择灯泡"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "order": 11
+  },
+  {
+    "id": "twentyfour",
+    "name": "24 点",
+    "category": "益智",
+    "subtitle": "数字灵感",
+    "description": "用四张数字牌和加减乘除拼出 24，给大脑来一场轻巧的热身。",
+    "cover": "assets/club-covers.png",
+    "coverGrid": [
+      2,
+      2
+    ],
+    "coverPosition": [
+      0,
+      0
+    ],
+    "entry": "games/twentyfour/index.html?v=club-3",
+    "added": "2026-11-16",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "controls": [
+      "先选数字牌，再选运算符和另一张牌，结果会变成一张新牌",
+      "四个数字各用一次，最终算出 24；允许负数和分数，不允许除以零",
+      "每组数字都有解，可以撤销、重算或查看一种解法",
+      "P / Esc 暂停；按钮支持 Tab 选择、Enter 确认"
+    ],
+    "notes": "保存当前题目和计算步骤；只有未查看解法的题目计入独立解出次数。",
+    "touchHelp": "先选数字牌，再选运算符和另一张牌，结果会变成一张新牌",
+    "controlHints": [
+      [
+        "点击 / 轻触",
+        "操作"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "order": 12
+  },
+  {
+    "id": "sokoban",
+    "name": "推箱子",
+    "category": "益智",
+    "subtitle": "仓库谜题",
+    "description": "给每只木箱找到归宿，在小小仓库里，把每一步都想清楚。",
+    "controls": [
+      "方向键或 W / A / S / D 移动，手机可滑动棋盘或点方向按钮",
+      "把全部木箱推到金色圆点上即可过关；箱子只能推、不能拉",
+      "共有 20 个关卡，通关后解锁下一关，已解锁关卡可自由重玩",
+      "Z 或撤销按钮退回一步，最多保留最近 500 步",
+      "R 或重开本关恢复当前关的初始布局",
+      "P / Esc 暂停"
+    ],
+    "notes": "自动保存当前布局、撤销记录和解锁进度，每关记录最少步数。卡在角落时可撤销或重开本关。",
+    "touchHelp": "在棋盘上滑动，或点击方向按钮移动；卡住时点“撤销”。",
+    "controlHints": [
+      [
+        "方向键 / WASD",
+        "移动"
+      ],
+      [
+        "Z",
+        "撤销"
+      ],
+      [
+        "R",
+        "重开本关"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/puzzle-covers.png",
+    "coverPosition": [
+      1,
+      0
+    ],
+    "coverGrid": [
+      2,
+      1
+    ],
+    "entry": "games/sokoban/index.html",
+    "added": "2026-11-09",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "order": 13
+  },
+  {
+    "id": "breakout",
+    "name": "打砖块",
+    "category": "街机",
+    "subtitle": "经典复刻",
+    "description": "接住每一次反弹，逐行消除砖阵，挑战越来越难的 50 个关卡。",
+    "coverPosition": [
+      1,
+      1
+    ],
+    "controls": [
+      "移动鼠标，或使用 ← → / A D 控制挡板",
+      "手机可在棋盘上拖动，或按住下方方向按钮",
+      "点击开始游戏发球，待发球时也可按空格",
+      "共有 50 关，每关 3 条生命；多层砖需要击中 2～3 次，击碎得 10～30 分",
+      "所有砖块都在屏幕内；清空任意一整行，剩余砖块全部自动下移一行",
+      "球落到底部消耗一条生命，生命用完时结束",
+      "P / Esc 暂停；失败可重试本关，新一局从第 1 关重新开始"
+    ],
+    "notes": "球速、砖块行数和耐久逐步提升，挡板逐渐变窄。过关保存分数和下一关进度，每关恢复 3 条生命。刷新后从已保存关卡的开局继续，当前关砖块状态不保存。",
+    "touchHelp": "在棋盘内左右拖动，或按住方向按钮移动挡板。",
+    "controlHints": [
+      [
+        "← → / A D",
+        "移动挡板"
+      ],
+      [
+        "鼠标",
+        "控制挡板"
+      ],
+      [
+        "Space",
+        "发球"
+      ],
+      [
+        "P / Esc",
+        "暂停"
+      ]
+    ],
+    "cover": "assets/game-covers.png",
+    "entry": "games/breakout/index.html?v=breakout-50",
+    "added": "2026-11-07",
+    "devices": [
+      "keyboard",
+      "touch"
+    ],
+    "restartMessage": true,
+    "order": 14
   },
   {
     "id": "memory",
@@ -390,15 +708,16 @@
         "P / Esc",
         "暂停"
       ]
-    ]
+    ],
+    "order": 15
   },
   {
-    "id": "link",
-    "name": "连连看",
-    "category": "益智",
-    "subtitle": "果园连线",
-    "description": "找到相同水果，用最多两个拐弯的路线连起来，一点点收好整座果园。",
-    "cover": "assets/garden-board-covers.png",
+    "id": "whack",
+    "name": "打地鼠",
+    "category": "休闲",
+    "subtitle": "果园反应挑战",
+    "description": "果园里的小地鼠探出头啦！看准时机敲一下，60 秒里挑战更高纪录。",
+    "cover": "assets/pastime-covers.png",
     "coverGrid": [
       2,
       2
@@ -407,128 +726,32 @@
       0,
       0
     ],
-    "entry": "games/link/index.html?v=garden-four-1",
-    "added": "2026-11-11",
+    "entry": "games/whack/index.html?v=pastime-polish-1",
+    "added": "2026-11-14",
     "devices": [
       "keyboard",
       "touch"
     ],
     "restartMessage": true,
     "controls": [
-      "点击两张相同水果，连线最多转弯两次，中间不能穿过其他水果",
-      "路线可以经过棋盘外侧的空道；全部消除即通关",
-      "轻松 18 对、标准 24 对、挑战 32 对，切换难度开始新局",
-      "提示会标出一对可连接水果；可手动重排，没有可连接对时自动重排",
-      "方向键选择水果，空格 / Enter 选中，P / Esc 暂停"
+      "点击冒头的地鼠会挥锤敲击；普通地鼠 10 分，金色地鼠 20 分",
+      "连续命中每次额外加 2 分，最高额外 10 分；点空或漏掉会中断连击",
+      "一局 60 秒，地鼠逐渐加快；数字键 1～9 对应棋盘从左到右、从上到下的九个洞",
+      "P / Esc 暂停，切到后台时暂停计时"
     ],
-    "notes": "自动保存棋盘、用时、提示及重排次数，各难度分别记录最短通关时间。没有倒计时，可慢慢思考。",
-    "touchHelp": "轻触两张水果进行连接；需要帮助时使用提示或重新排列。",
+    "notes": "保存当前分数、剩余时间和最高纪录。",
+    "touchHelp": "轻触冒头的地鼠，留意金色地鼠。",
     "controlHints": [
       [
-        "点击 / 轻触",
-        "选水果"
-      ],
-      [
-        "方向键",
-        "选格"
+        "点击 / 1～9",
+        "敲地鼠"
       ],
       [
         "P / Esc",
         "暂停"
       ]
-    ]
-  },
-  {
-    "id": "tictactoe",
-    "name": "井字棋",
-    "category": "益智",
-    "subtitle": "花园对弈",
-    "description": "叉叉和圆圈的小小对决：抢先连成三个，和电脑或身边的朋友比一局。",
-    "cover": "assets/garden-board-covers.png",
-    "coverGrid": [
-      2,
-      2
     ],
-    "coverPosition": [
-      1,
-      0
-    ],
-    "entry": "games/tictactoe/index.html?v=garden-four-2",
-    "added": "2026-11-11",
-    "devices": [
-      "keyboard",
-      "touch"
-    ],
-    "restartMessage": true,
-    "controls": [
-      "X 先手，轮流在空格落子；横、竖、斜连成三个即胜",
-      "人机模式你执 X，电脑执 O；也可切换双人同屏",
-      "棋盘填满无人连线为平局；不能覆盖已有棋子",
-      "悔棋在人机模式撤回你与电脑最近一轮；电脑未落子时只撤回你的一步",
-      "方向键选择格子，空格 / Enter 落子，P / Esc 暂停"
-    ],
-    "notes": "自动保存当前对局与对战模式。电脑会选择最优应对，双方发挥正确时会平局。",
-    "touchHelp": "轻触空格落子；选择双人同屏，可和朋友轮流使用同一台设备。",
-    "controlHints": [
-      [
-        "点击 / 轻触",
-        "落子"
-      ],
-      [
-        "方向键",
-        "选格"
-      ],
-      [
-        "P / Esc",
-        "暂停"
-      ]
-    ]
-  },
-  {
-    "id": "gomoku",
-    "name": "五子棋",
-    "category": "益智",
-    "subtitle": "林间棋局",
-    "description": "在暖木棋盘上落下一颗棋子，寻找横、竖、斜五子相连的机会。",
-    "cover": "assets/garden-board-covers.png",
-    "coverGrid": [
-      2,
-      2
-    ],
-    "coverPosition": [
-      0,
-      1
-    ],
-    "entry": "games/gomoku/index.html?v=garden-four-2",
-    "added": "2026-11-11",
-    "devices": [
-      "keyboard",
-      "touch"
-    ],
-    "restartMessage": true,
-    "controls": [
-      "15 × 15 棋盘，黑棋先行，双方轮流在交叉点落子",
-      "采用无禁手规则，横、竖、斜连续五颗或以上即胜",
-      "人机模式你执黑棋，电脑执白棋；可切换双人同屏",
-      "人机悔棋撤回最近一轮，双人悔棋撤回一步；金色小圈标出最近落子",
-      "方向键选择交叉点，空格 / Enter 落子，P / Esc 暂停"
-    ],
-    "notes": "自动保存当前对局和模式。人机对手会寻找成五、阻挡和连线机会，适合休闲练习。",
-    "touchHelp": "轻触棋盘交叉点落子；金色小圈标出上一手，可使用悔棋纠正误触。",
-    "controlHints": [
-      [
-        "点击 / 轻触",
-        "落子"
-      ],
-      [
-        "方向键",
-        "选点"
-      ],
-      [
-        "P / Esc",
-        "暂停"
-      ]
-    ]
+    "order": 16
   },
   {
     "id": "sliding",
@@ -574,15 +797,16 @@
         "P / Esc",
         "暂停"
       ]
-    ]
+    ],
+    "order": 17
   },
   {
-    "id": "whack",
-    "name": "打地鼠",
-    "category": "休闲",
-    "subtitle": "果园反应挑战",
-    "description": "果园里的小地鼠探出头啦！看准时机敲一下，60 秒里挑战更高纪录。",
-    "cover": "assets/pastime-covers.png",
+    "id": "link",
+    "name": "连连看",
+    "category": "益智",
+    "subtitle": "果园连线",
+    "description": "找到相同水果，用最多两个拐弯的路线连起来，一点点收好整座果园。",
+    "cover": "assets/garden-board-covers.png",
     "coverGrid": [
       2,
       2
@@ -591,85 +815,45 @@
       0,
       0
     ],
-    "entry": "games/whack/index.html?v=pastime-polish-1",
-    "added": "2026-11-14",
+    "entry": "games/link/index.html?v=garden-four-1",
+    "added": "2026-11-11",
     "devices": [
       "keyboard",
       "touch"
     ],
     "restartMessage": true,
     "controls": [
-      "点击冒头的地鼠会挥锤敲击；普通地鼠 10 分，金色地鼠 20 分",
-      "连续命中每次额外加 2 分，最高额外 10 分；点空或漏掉会中断连击",
-      "一局 60 秒，地鼠逐渐加快；数字键 1～9 对应棋盘从左到右、从上到下的九个洞",
-      "P / Esc 暂停，切到后台时暂停计时"
+      "点击两张相同水果，连线最多转弯两次，中间不能穿过其他水果",
+      "路线可以经过棋盘外侧的空道；全部消除即通关",
+      "轻松 18 对、标准 24 对、挑战 32 对，切换难度开始新局",
+      "提示会标出一对可连接水果；可手动重排，没有可连接对时自动重排",
+      "方向键选择水果，空格 / Enter 选中，P / Esc 暂停"
     ],
-    "notes": "保存当前分数、剩余时间和最高纪录。",
-    "touchHelp": "轻触冒头的地鼠，留意金色地鼠。",
+    "notes": "自动保存棋盘、用时、提示及重排次数，各难度分别记录最短通关时间。没有倒计时，可慢慢思考。",
+    "touchHelp": "轻触两张水果进行连接；需要帮助时使用提示或重新排列。",
     "controlHints": [
       [
-        "点击 / 1～9",
-        "敲地鼠"
+        "点击 / 轻触",
+        "选水果"
+      ],
+      [
+        "方向键",
+        "选格"
       ],
       [
         "P / Esc",
         "暂停"
       ]
-    ]
+    ],
+    "order": 18
   },
   {
-    "id": "block1010",
-    "name": "1010 方块拼盘",
-    "category": "益智",
-    "subtitle": "宝石木盘",
-    "description": "把彩色方块放进 10×10 木盘，填满整行或整列，享受连排消除的满足感。",
-    "cover": "assets/pastime-covers.png",
-    "coverGrid": [
-      2,
-      2
-    ],
-    "coverPosition": [
-      1,
-      0
-    ],
-    "entry": "games/block1010/index.html?v=pastime-polish-1",
-    "added": "2026-11-14",
-    "devices": [
-      "keyboard",
-      "touch"
-    ],
-    "restartMessage": true,
-    "controls": [
-      "拖起下方方块，整块跟手移动；绿色预览时松手放下，红色表示无法放置，松手后退回",
-      "拖动会按拿起的位置对齐棋盘，触屏时方块抬高避免手指遮挡；也可点选再点击棋盘，以所点格为形状包围框左上角",
-      "填满一行或一列立即消除；每放一格加 1 分，每消一行或一列加 10 分",
-      "三个方块都使用后补充；剩余所有方块都无处放置时结束；可撤销最后一步",
-      "数字键 1～3 选方块，方向键选棋盘位置，Enter / 空格放置，P / Esc 暂停"
-    ],
-    "notes": "不限时，自动保存棋盘、待选方块、分数及一次撤销，记录最高分。",
-    "touchHelp": "按住下方方块拖入棋盘，绿色时松手放下；也可点选方块后轻触棋盘。",
-    "controlHints": [
-      [
-        "点击 / 拖动",
-        "放置方块"
-      ],
-      [
-        "1～3",
-        "选方块"
-      ],
-      [
-        "P / Esc",
-        "暂停"
-      ]
-    ]
-  },
-  {
-    "id": "lights",
-    "name": "点灯游戏",
-    "category": "益智",
-    "subtitle": "萤火夜晚",
-    "description": "轻点一盏灯，会带动身旁的灯一起变化。让整片夜色安静下来，解开灯光谜题。",
-    "cover": "assets/pastime-covers.png",
+    "id": "pong",
+    "name": "乒乓对打",
+    "category": "街机",
+    "subtitle": "花园球桌",
+    "description": "握住红色球拍，与电脑来一场七分制的花园对打。",
+    "cover": "assets/club-covers.png",
     "coverGrid": [
       2,
       2
@@ -678,81 +862,73 @@
       0,
       1
     ],
-    "entry": "games/lights/index.html?v=pastime-polish-1",
-    "added": "2026-11-14",
+    "entry": "games/pong/index.html?v=club-3",
+    "added": "2026-11-16",
     "devices": [
       "keyboard",
       "touch"
     ],
     "restartMessage": true,
     "controls": [
-      "点击灯泡，同时翻转自己和上下左右四个邻居的亮灭状态",
-      "让全部灯熄灭即可通关，30 关全部可解",
-      "第 1～10 关为 3×3，第 11～20 关为 4×4，第 21～30 关为 5×5",
-      "提示标出当前解法中的一盏灯；可撤销，或新一局重置本关",
-      "方向键选灯，Enter / 空格切换；P / Esc 暂停"
+      "你控制下方红拍，电脑控制上方蓝拍；先得 7 分获胜",
+      "鼠标移动、触屏在球桌上拖动，或方向键左右 / A D 控制球拍",
+      "击中球拍边缘可改变反弹角度；每次回击球速逐渐提高",
+      "三档电脑水平；切换水平重新开局，P / Esc 暂停"
     ],
-    "notes": "保存关卡、棋盘和操作历史，各关分别记录最少步数。提示次数会在结算时显示。",
-    "touchHelp": "轻触灯泡翻转；金色提示框标出建议点击的位置。",
+    "notes": "保存累计获胜场次；刷新或离开后比赛重新开始。",
+    "touchHelp": "你控制下方红拍，电脑控制上方蓝拍；先得 7 分获胜",
     "controlHints": [
       [
         "点击 / 轻触",
-        "翻转灯泡"
-      ],
-      [
-        "方向键",
-        "选择灯泡"
+        "操作"
       ],
       [
         "P / Esc",
         "暂停"
       ]
-    ]
+    ],
+    "order": 19
   },
   {
-    "id": "pipes",
-    "name": "水管接通",
+    "id": "watersort",
+    "name": "水排序",
     "category": "益智",
-    "subtitle": "花园水路",
-    "description": "旋转弯弯绕绕的水管，让蓝色水流穿过花园，从进水口一路到达出口。",
-    "cover": "assets/pastime-covers.png",
+    "subtitle": "彩色药水",
+    "description": "把缤纷药水倒入玻璃瓶，让每种颜色找到自己的家。",
+    "cover": "assets/club-covers.png",
     "coverGrid": [
       2,
       2
     ],
     "coverPosition": [
       1,
-      1
+      0
     ],
-    "entry": "games/pipes/index.html?v=pastime-polish-1",
-    "added": "2026-11-14",
+    "entry": "games/watersort/index.html?v=club-3",
+    "added": "2026-11-16",
     "devices": [
       "keyboard",
       "touch"
     ],
     "restartMessage": true,
     "controls": [
-      "点击一段水管，顺时针旋转 90°；相邻接口必须面对面才能通水",
-      "将左上蓝色进水口接到右下金色出水口，不必用到全部水管；点击「玩法图解」查看通关示意",
-      "30 关全部可解：第 1～10 关为 4×4，第 11～20 关为 5×5，第 21～30 关为 6×6",
-      "蓝色管道表示已通水；「找一段」标出需要旋转的水管，「撤销」退回上一步",
-      "方向键选格，Enter / 空格旋转；P / Esc 暂停"
+      "先选起点瓶，再选目标瓶；只可倒入空瓶或顶层同色的瓶子",
+      "连续同色的水会一起倒入，最多倒到目标瓶装满；每瓶容量 4 层",
+      "每种颜色独占一个满瓶时通关，空瓶不影响胜利；共 30 关",
+      "可撤销最近的倒水，或增加一个辅助空瓶；P / Esc 暂停"
     ],
-    "notes": "保存当前关卡、水管方向和操作历史，各关分别记录最少旋转次数。",
-    "touchHelp": "轻触水管旋转，把蓝色进水口连到金色出水口；点「玩法图解」看通关示意。",
+    "notes": "保存关卡、瓶内颜色和步数；撤销历史仅在本次页面有效。使用辅助空瓶不记录最佳步数。",
+    "touchHelp": "先选起点瓶，再选目标瓶；只可倒入空瓶或顶层同色的瓶子",
     "controlHints": [
       [
         "点击 / 轻触",
-        "旋转水管"
-      ],
-      [
-        "方向键",
-        "选水管"
+        "操作"
       ],
       [
         "P / Esc",
         "暂停"
       ]
-    ]
+    ],
+    "order": 20
   }
 ]

@@ -1,0 +1,6 @@
+export function rounded(ctx,x,y,w,h,r,fill){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fillStyle=fill;ctx.fill();}
+export function gradient(ctx,x,y,w,h,colors){const g=ctx.createLinearGradient(x,y,x+w,y+h);colors.forEach((c,i)=>g.addColorStop(i/(colors.length-1),c));return g;}
+export function ball(ctx,x,y,r){ctx.save();ctx.shadowColor='#082e5670';ctx.shadowBlur=7;ctx.shadowOffsetY=6;const g=ctx.createRadialGradient(x-r*.35,y-r*.4,1,x,y,r);g.addColorStop(0,'#ffffff');g.addColorStop(.6,'#fffbe7');g.addColorStop(1,'#b7dce2');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.restore();}
+export function makeCanvas(ui,w,h,label){const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;canvas.setAttribute('aria-label',label);canvas.setAttribute('role','img');ui.surface.append(canvas);return [canvas,canvas.getContext('2d')];}
+export function loadSprites(){const image=new Image();image.src='../../assets/club-sprites.png';return image;}
+export function sprite(ctx,image,col,row,x,y,w,h){if(!image.complete||!image.naturalWidth)return false;const sw=image.naturalWidth/2,sh=image.naturalHeight/2;ctx.drawImage(image,col*sw,row*sh,sw,sh,x,y,w,h);return true;}
